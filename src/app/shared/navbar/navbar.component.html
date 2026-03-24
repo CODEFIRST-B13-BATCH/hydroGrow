@@ -1,0 +1,128 @@
+<mat-sidenav-container class="layout-container" autosize>
+
+  <!-- SIDEBAR (UNCHANGED) -->
+  <mat-sidenav mode="side"
+    [opened]="true"
+    class="sidebar" [style.width.px]="isCollapsed ? 70 : 240">
+
+    <!-- Header -->
+    <div class="sidebar-header">
+      <button mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      @if (!isCollapsed) {
+        <div class="logo">
+          <span class="material-symbols-outlined logo-icon">potted_plant</span>
+          <div class="logo-text">
+            <h3>HydroGrow</h3>
+            <p>OWNER PORTAL</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Menu -->
+    <mat-nav-list class="sidebar-menu">
+
+      <a mat-list-item routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon>
+        @if (!isCollapsed) {
+          <span class="menu-text">Dashboard</span>
+        }
+      </a>
+
+      <a mat-list-item routerLink="/farms">
+        <mat-icon>agriculture</mat-icon>
+        @if (!isCollapsed) {
+          <span class="menu-text">Farms</span>
+        }
+      </a>
+
+    <div class="menu-parent">
+  <mat-icon>eco</mat-icon>
+
+  @if (!isCollapsed) {
+    <div class="custom-select">
+
+      <mat-select
+        placeholder="Crops"
+        (selectionChange)="onCropChange($event.value)"
+        panelClass="custom-dropdown"
+      >
+        <mat-option value="health">Crops Health Detection </mat-option>
+        <mat-option value="management">Crops Management</mat-option>
+      </mat-select>
+
+    </div>
+  }
+</div>
+
+      <a mat-list-item routerLink="/sensors">
+        <mat-icon>sensors</mat-icon>
+        @if (!isCollapsed) {
+          <span class="menu-text">Sensors</span>
+        }
+      </a>
+
+      <a mat-list-item routerLink="/alerts">
+        <mat-icon>notifications</mat-icon>
+        @if (!isCollapsed) {
+          <span class="menu-text">Alerts</span>
+        }
+      </a>
+
+      <a mat-list-item routerLink="/ai-tools">
+        <mat-icon>psychology</mat-icon>
+        @if (!isCollapsed) {
+          <span class="menu-text">AI Tools</span>
+        }
+      </a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <!-- MAIN CONTENT AREA -->
+  <mat-sidenav-content>
+
+    <!-- NAVBAR -->
+    <mat-toolbar class="navbar">
+
+      <mat-form-field appearance="fill" class="search-bar">
+        <mat-icon matPrefix class="search-icon">search</mat-icon>
+        <input matInput placeholder="Search systems, crops or alerts..." />
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <button mat-icon-button class="notification-btn">
+        <mat-icon>notifications</mat-icon>
+        <span class="notification-dot"></span>
+      </button>
+
+      <div class="nav-divider"></div>
+
+      <div class="user-profile">
+        <div class="user-text">
+          <div class="user-name">James Farmworth</div>
+          <div class="user-role">Senior Owner</div>
+        </div>
+
+        <div class="avatar">
+         <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuATajDVNQH4Ld6WzoWilkABeJrwVvHLq3yYOz6TI1EcPBPeXZ7OB8aqnxtYwfNzG41IGo9Y1H99MQgCMbXmuRhiEtlz2tWAb27y9LSC4ug0TL9xT-mt8aJDoL_Zkm4_QdZ7X5nYOC5t0N1tNPVSWvvg7BWVV3oX_ziWFvU0g6bFRyLm_kWT1n7a3OlVsQntXL_aP1DLP2CzKEbFHGKTGE4fyEHXxq1cmFpXf4oaItibGakcdQrOeiE_8b0d0JXPBSxZ1A2X_r1CQRen"
+          />
+        </div>
+      </div>
+
+    </mat-toolbar>
+
+    <!-- PAGE CONTENT -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
