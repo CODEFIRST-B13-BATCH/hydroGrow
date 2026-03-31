@@ -7,7 +7,10 @@ import { MatListModule } from '@angular/material/list';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
+import { Router } from '@angular/router';
+import { SuperAdminDashboardComponent } from "../../super-admin-dashboard/super-admin-dashboard.component";
 @Component({
   selector: 'app-navbar',
   imports: [
@@ -20,9 +23,27 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule,
     RouterModule,
-  ],
+    MatExpansionModule,
+    MatMenuModule,
+    SuperAdminDashboardComponent
+],
 
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+
+ showCropsMenu = false;
+isCollapsed = false;
+ 
+
+  constructor(private router: Router) {}
+
+  openCrops() {
+    this.showCropsMenu = !this.showCropsMenu;
+    this.router.navigate(['/crops']);
+  }
+// toggleSidebar() {
+//   this.isCollapsed = !this.isCollapsed;
+// }
+}
