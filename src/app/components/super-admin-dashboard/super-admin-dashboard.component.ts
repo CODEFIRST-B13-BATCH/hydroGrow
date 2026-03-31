@@ -22,7 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-super-admin-dashboard',
-  imports: [MatCardModule, MatButtonModule, MatIcon, MatNavList, MatTableModule, MatSelectModule,NgClass, MatSidenavModule,MatGridListModule,    ],
+  imports: [MatCardModule, MatButtonModule, MatIcon, MatNavList, MatTableModule, MatSelectModule,NgClass, MatSidenavModule,MatGridListModule,  ],
   templateUrl: './super-admin-dashboard.component.html',
   styleUrl:'./super-admin-dashboard.component.css'
 })
