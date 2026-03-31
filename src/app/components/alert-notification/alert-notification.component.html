@@ -1,0 +1,260 @@
+<div class="dashboard-wrapper">
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <div class="header-row">
+      <div class="title-section">
+        <h1>Alerts & Notifications</h1>
+        <p>Monitor and manage system-critical alerts across all your hydroponic systems.</p>
+      </div>
+
+      <div class="header-actions">
+        <button mat-flat-button class="btn-resolve">
+          <mat-icon>check_circle</mat-icon>
+          Resolve All
+        </button>
+
+        <button mat-stroked-button style="border-radius: 10px; color:black;">
+          <mat-icon>file_download</mat-icon>
+          Export Log
+        </button>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <mat-card class="stat-card">
+        <div class="icon-circle red">
+          <mat-icon>error</mat-icon>
+        </div>
+        <div class="stat-info">
+          <span>Critical Alerts</span>
+          <h2 style="margin-left: 10px;">03</h2>
+        </div>
+      </mat-card>
+
+      <mat-card class="stat-card">
+        <div class="icon-circle orange">
+          <mat-icon>warning</mat-icon>
+        </div>
+        <div class="stat-info">
+          <span>Warnings</span>
+          <h2 style="margin-left: 10px;">08</h2>
+        </div>
+      </mat-card>
+
+      <mat-card class="stat-card">
+        <div class="icon-circle blue">
+          <mat-icon>info</mat-icon>
+        </div>
+        <div class="stat-info">
+          <span>System Health</span>
+          <h2 style="margin-left: 10px;">94%</h2>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="filters-row">
+      <span class="filters-label">FILTERS:</span>
+
+      <mat-form-field appearance="outline" class="filter-field">
+        <mat-select [(ngModel)]="selectedSeverity" placeholder="All Severities ">
+          <mat-option value="all">All Severities</mat-option>
+          <mat-option value="CRITICAL">Critical</mat-option>
+          <mat-option value="WARNING">Warning</mat-option>
+          <mat-option value="INFO">Info</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="filter-field">
+        <mat-select [(ngModel)]="selectedStatus" placeholder="Active">
+          <mat-option value="Active">Active</mat-option>
+          <mat-option value="Acknowledged">Acknowledged</mat-option>
+          <mat-option value="Resolved">Resolved</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="filter-field">
+        <mat-select [(ngModel)]="selectedPeriod" placeholder="Last 24 Hours">
+          <mat-option value="24h">Last 24 Hours</mat-option>
+          <mat-option value="7d">Last 7 Days</mat-option>
+          <mat-option value="30d">Last 30 Days</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-button class="clear-filters">Clear Filters</button>
+    </div>
+
+    <mat-card class="table-card">
+      <!-- TABLE -->
+      <table mat-table [dataSource]="dataSource" class="alerts-table">
+
+        <!-- ALERT TYPE -->
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef > ALERT TYPE & SOURCE </th>
+
+          <td mat-cell *matCellDef="let element">
+            <div class="type-cell">
+
+              <div class="icon-box" [ngClass]="element.iconClass" style="color: white;">
+                <mat-icon>{{element.icon}}</mat-icon>
+              </div>
+
+              <div>
+                <div class="type-title">{{element.type}}</div>
+                <div class="type-sub">{{element.source}}</div>
+              </div>
+
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- SEVERITY -->
+        <ng-container matColumnDef="severity">
+          <th mat-header-cell *matHeaderCellDef> SEVERITY </th>
+
+          <td mat-cell *matCellDef="let element">
+            <span class="badge" [ngClass]="element.severity.toLowerCase()">
+              {{element.severity}}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- TIME -->
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef> TIMESTAMP </th>
+
+          <td mat-cell *matCellDef="let element">
+            {{element.time}}
+          </td>
+        </ng-container>
+
+        <!-- STATUS -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> STATUS </th>
+
+          <td mat-cell *matCellDef="let element">
+
+            <div class="status">
+              <span class="dot" [ngClass]="element.status.toLowerCase()"></span>
+              {{element.status}}
+            </div>
+
+          </td>
+        </ng-container>
+
+        <!-- ACTIONS -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> ACTIONS </th>
+
+          <td mat-cell *matCellDef="let element">
+
+            <div class="actions">
+
+              <button mat-icon-button class="action-btn">
+                <mat-icon>check</mat-icon>
+              </button>
+
+              <button mat-icon-button class="action-btn">
+                <mat-icon>volume_off</mat-icon>
+              </button>
+
+              <button mat-icon-button class="action-btn">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+
+            </div>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+      <!-- FOOTER -->
+      <div class="table-footer">
+
+        <span>Showing 1-10 of 42 active alerts</span>
+
+        <div class="pagination">
+          <button mat-icon-button>
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+
+          <button mat-icon-button>
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        </div>
+
+      </div>
+
+    </mat-card>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <div class="sidebar-container">
+    <mat-card class="sidebar-card">
+      <div class="sidebar-header">
+        <div class="sidebar-title">SYSTEM HEALTH SUMMARY</div>
+      </div>
+
+      <div class="health-item">
+        <span>Nutrient Mixers</span>
+        <span class="status healthy">● Healthy</span>
+      </div>
+
+      <div class="health-item">
+        <span>LED Grids</span>
+        <span class="status healthy">● Healthy</span>
+      </div>
+
+      <div class="health-item">
+        <span>Pumping Systems</span>
+        <span class="status issue">● 1 Issue</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="uptime-header">
+        <span class="uptime-badge">UPTIME STATUS</span>
+        <span class="uptime-value">99.9%</span>
+      </div>
+
+      <mat-progress-bar mode="determinate" value="99.9" class="uptime-bar"></mat-progress-bar>
+    </mat-card>
+
+    <mat-card class="sidebar-card notifications-card">
+      <div class="sidebar-header">
+        <div class="sidebar-title">RECENT NOTIFICATIONS</div>
+        <mat-icon class="sidebar-icon">history</mat-icon>
+      </div>
+
+      <div class="notif-list">
+        <div class="notif-item" *ngFor="let note of notifications">
+          <div class="notif-icon" [ngClass]="{ green: note.icon === 'bolt', purple: note.icon === 'system_update' }">
+            <mat-icon>{{ note.icon }}</mat-icon>
+          </div>
+          <div class="notif-text">
+            <div class="notif-title"><strong>{{ note.title }}</strong> {{ note.action }}</div>
+            <div class="notif-time">{{ note.time }}</div>
+          </div>
+        </div>
+      </div>
+
+      <button mat-stroked-button class="view-all-btn">View All History</button>
+
+    </mat-card>
+    <mat-card class="pro-tip-card ">
+
+      <div class="pro-tip-content">
+
+        <mat-icon class="tip-icon">lightbulb</mat-icon>
+
+        <span class="tip-text">Pro Tip</span>
+
+      </div>
+
+    </mat-card>
+
+  </div>
+</div>

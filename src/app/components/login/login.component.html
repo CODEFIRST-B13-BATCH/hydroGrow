@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <!-- login form code -->
+    <div>
+        <form #loginPage="ngForm" (ngSubmit)="onSubmit(loginPage)">
+            <mat-card appearance="outlined" class="main">
+                <mat-card-content>
+                    <div class="boundary">
+                        <span class="material-symbols-outlined" style="font-size: 60px;">
+                            potted_plant
+                        </span>
+                    </div>
+                    <h1 style="font-weight: 700;text-align: center;color:black;margin-bottom: 30px;">Welcome Back!</h1>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Phone No</mat-label>
+                            <input type="tel" matInput placeholder="000-000-0000" maxlength="10" minlength="10"
+                                pattern="^[0-9]{10}$" name="phoneNo" [(ngModel)]="phoneNo" ngModel required>
+                            <mat-icon matSuffix>mode_edit</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide() ? 'password' : 'text'" name="password" [(ngModel)]="password"
+                                ngModel required>
+                            <button mat-icon-button matSuffix type="button" (click)="clickEvent($event)"
+                                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide()">
+                                <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                        <P style="text-align: right;"><a href="#">Forget Password?</a></P>
+                    </div>
+                    <div>
+                        <mat-checkbox>Remember me</mat-checkbox>
+                    </div>
+
+                    <div>
+                        <div class="example-button-row">
+                            <button mat-flat-button type="submit">LOGIN</button>
+                        </div>
+                        <div>
+                            <h5 style="text-align: center;margin-top: 50px;">Don't have an account? <a
+                                    (click)="registrationPage()"
+                                    style="text-decoration: underline;color: blue;">Register</a>
+                            </h5>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </form>
+    </div>

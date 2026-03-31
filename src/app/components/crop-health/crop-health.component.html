@@ -93,6 +93,7 @@
                         Recent Analyses
                     </div>
                     <!-- Table -->
+                     <div class="table-wrapper"> 
                     <mat-table [dataSource]="recentAnalyses" class="analyses-table">
                         <!-- Thumbnail Column -->
                         <ng-container matColumnDef="thumbnail">
@@ -136,6 +137,7 @@
                         <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-header-row"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </mat-table>
+                    </div>
                 </mat-card>
             </div>
             <!-- Right Column -->

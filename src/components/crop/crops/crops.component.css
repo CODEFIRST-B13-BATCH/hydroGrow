@@ -1,0 +1,442 @@
+/* Main Container */
+.dashboard {
+  height: 100vh;
+  background: #bbbbbb21;
+  display: block;
+}
+/* .crop{
+ border: 1px solid red; */
+ /* margin-top: 0px; */
+ /* margin-right: -100px;
+ height: 100%;
+ width: 100%;
+} */
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+   background: #bbbbbb21;
+}
+
+.header-text h1 {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header-text p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #777;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Stats Section */
+.stats {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+/* Cards */
+.card {
+  flex: 1;
+  min-width: 220px;
+  padding: 20px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  color: #777;
+}
+
+.card h2 {
+  margin: 8px 0;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* Health Indicators */
+.green {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.red {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+/* Table Card */
+.table-card {
+  margin: 20px;
+  padding: 20px;
+}
+
+.table-card h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+/* Angular Material Table */
+table {
+  width: 100%;
+}
+
+th {
+  font-weight: 600;
+}
+
+/* Bottom Section */
+.bottom {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.big {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+}
+
+/* Full width button */
+.full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+
+  .stats {
+    flex-direction: column;
+  }
+
+  .bottom {
+    flex-direction: column;
+  }
+
+}
+.example-label {
+  font-size: 14px;
+  margin: 0 16px 0 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  max-width: 600px;
+}
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.schedule-card {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timeline-header {
+  display: flex;
+  margin-left: 180px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.week {
+  flex: 1;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: gray;
+  
+}
+
+.week.current {
+  color: #3f51b5;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.label {
+  width: 180px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.status {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: gray;
+}
+
+.status.active {
+  color: #3f51b5;
+}
+
+.status.urgent {
+  color: red;
+}
+
+.bar {
+  position: relative;
+  flex: 1;
+  height: 32px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.bar.dashed {
+  border: 1px dashed #bbb;
+}
+
+.bar div {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.growth {
+  background: rgba(63, 81, 181, 0.2);
+  border-right: 2px solid #3f51b5;
+}
+
+.harvest {
+  background: rgba(76, 175, 80, 0.2);
+  border-left: 2px solid #4caf50;
+}
+
+.mature {
+  background: rgba(63, 81, 181, 0.4);
+}
+
+.current {
+  background: #4caf50;
+  color: white;
+}
+
+.planting {
+  background: rgba(33, 150, 243, 0.2);
+  border: 1px dashed #2196f3;
+}
+
+.faded {
+  opacity: 0.6;
+}
+.flex-gap-2 {
+  /* border: 1px solid red; */
+  display: flex;
+  gap: 8px;
+  padding-left: 700px;
+  margin-top: -45px;
+  font-size: 10px;
+}
+.btn{
+   /* border:1px solid black; */
+   /* padding: 8px 16px; */
+   padding-left: 800px;
+   margin-top: -100px;
+}
+.cardlist{
+    /* border:1px solid black; */
+    margin-top: 10px;
+    padding: 20px;
+    margin-left: 600px;
+    /* padding-left: 700px; */
+    margin-top: -230px;
+
+}
+.harvest-card{
+    /* border:1px solid red; */
+    margin-top: 20px;
+    height: 250px;
+    width: 500px;
+}
+.custom-chip {
+  border: 1px solid red;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 16px;
+  background-color: #e2e8f0; /* slate-200 */
+  color: #000;
+}
+
+/* Dark mode */
+.dark .custom-chip {
+  background-color: #334155; /* slate-700 */
+  color: #fff;
+}
+
+.status-chip {
+  padding: 2px 8px;
+  border-radius: 9999px; /* full rounded */
+  background-color: #dbeafe; /* blue-100 */
+  color: #2563eb; /* blue-600 */
+  font-size: 10px;
+  font-weight: bold;
+  width: fit-content;
+  text-transform: uppercase;
+}
+
+/* Dark mode */
+.dark .status-chip {
+  background-color: rgba(30, 58, 138, 0.3); /* blue-900/30 */
+  color: #60a5fa; /* blue-400 */
+}
+.full-width-table {
+  width: 100%;
+}
+
+.header-cell {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.cell-flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box.green {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.chip {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.chip.blue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.health {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+}
+
+.table-row:hover {
+  background: rgba(0,0,0,0.03);
+}
+.week{
+   flex: 1;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #94a3b8; /* slate-400 */
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+}
+.cWeek{
+  border: 1px solid  ;
+  border-top: none;
+  border-bottom: none;
+  background-color: #77777735;
+  height: 15px;
+  width: 15px;
+  text-align: center;
+  flex: 1;
+  font-size: 10px;
+  font-weight: 700;
+  color: #94a3b8; /* slate-400 */
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+}
+.chip {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Stage colors */
+.chip.blue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.chip.purple {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.chip.orange {
+  background: #ffedd5;
+  color: #f97316;
+}
+
+.chip.green {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.chip.red {
+  background: #fee2e2;
+  color: #dc2626;
+}
