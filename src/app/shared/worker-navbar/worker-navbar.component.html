@@ -1,4 +1,6 @@
 <mat-toolbar class="navbar">
+
+  
   <div class="logo">
     <span class="material-symbols-outlined logo-icon">potted_plant</span>
     <span class="logo-text">HydroFarm Portal</span>
@@ -44,7 +46,7 @@
 
 <!-- Sidebar -->
 
-<mat-sidenav-container class="layout-container" autosize>
+<mat-sidenav-container class="layout-container" >
   <mat-sidenav
     #sidenav
     mode="side"
@@ -52,11 +54,11 @@
     class="sidenav"
     [style.width.px]="isCollapsed ? 70 : 240"
   >
-    <div class="sidebar-header">
+    <!-- <div class="sidebar-header">
       <button mat-icon-button (click)="toggleSidebar()">
         <mat-icon>menu</mat-icon>
       </button>
-    </div>
+    </div> -->
 
     <!-- Menu -->
     <mat-list class="sidebar-menu">
@@ -79,7 +81,12 @@
         <mat-icon>history_edu</mat-icon>
         <span class="menu-text">Activity Logs</span>
       </a>
-    </mat-list>
+     
+ <a mat-list-item (click)="onLogout()" class="logout-item" style="cursor: pointer;">
+    <mat-icon>logout</mat-icon>
+      <span class="menu-text">Log Out</span> 
+  </a>
+ </mat-list>
     <!-- upload section -->
 
   <mat-card class="upload-card">
@@ -116,5 +123,5 @@
     <!-- Hidden input -->
   </mat-sidenav>
 
-  <mat-sidenav-content> </mat-sidenav-content>
+  <!-- <mat-sidenav-content> </mat-sidenav-content> -->
 </mat-sidenav-container>

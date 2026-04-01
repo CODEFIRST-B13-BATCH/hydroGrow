@@ -1,12 +1,6 @@
 /* app.component.css */
 
-.main-container {
-  display: flex !important; /* Forces the Navbar and Content to be horizontal */
-  flex-direction: row;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden; /* Stops the main window from scrolling twice */
-}
+ 
 
 /* This is your Navbar/Sidebar component */
 app-admin-navabr, 
@@ -19,6 +13,8 @@ app-navbar {
   height: 100%;
 }
 
+ 
+ 
 .page-content {
   flex-grow: 1; /* Tells the dashboard to take up all remaining width */
    

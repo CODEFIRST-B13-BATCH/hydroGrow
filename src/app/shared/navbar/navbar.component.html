@@ -55,12 +55,12 @@
       </div>
 
       <div class="sidebar-footer">
-        <mat-nav-list>
-          <a mat-list-item routerLink="/" class="logout-item">
-            <mat-icon>logout</mat-icon>
-            @if (!isCollapsed) { <span class="menu-text">Log Out</span> }
-          </a>
-        </mat-nav-list>
+      <mat-nav-list>
+  <a mat-list-item (click)="onLogout()" class="logout-item" style="cursor: pointer;">
+    <mat-icon>logout</mat-icon>
+    @if (!isCollapsed) { <span class="menu-text">Log Out</span> }
+  </a>
+</mat-nav-list>
       </div>
     </div>
   </mat-sidenav>
@@ -86,14 +86,14 @@
             <div class="user-role">{{userRole}}</div>
           </div>
           <div class="avatar">
-            <img src="https://ui-avatars.com/api/?name=Owner&background=7a7b2f&color=fff" />
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuATajDVNQH4Ld6WzoWilkABeJrwVvHLq3yYOz6TI1EcPBPeXZ7OB8aqnxtYwfNzG41IGo9Y1H99MQgCMbXmuRhiEtlz2tWAb27y9LSC4ug0TL9xT-mt8aJDoL_Zkm4_QdZ7X5nYOC5t0N1tNPVSWvvg7BWVV3oX_ziWFvU0g6bFRyLm_kWT1n7a3OlVsQntXL_aP1DLP2CzKEbFHGKTGE4fyEHXxq1cmFpXf4oaItibGakcdQrOeiE_8b0d0JXPBSxZ1A2X_r1CQRen" />
           </div>
         </div>
       </div>
     </mat-toolbar>
 
-    <!-- <div class="content-padding">
-        <router-outlet></router-outlet>
-    </div> -->
+ <!-- <main class="page-content">
+       <router-outlet></router-outlet>
+    </main> -->
   </mat-sidenav-content>
 </mat-sidenav-container>

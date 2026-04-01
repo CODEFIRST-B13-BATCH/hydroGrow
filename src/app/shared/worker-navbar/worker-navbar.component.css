@@ -1,11 +1,33 @@
 .layout-container {
-  height: 100vh;  
+  height: calc(100vh - 64px);  
   margin-left: 10px;
-  
+  }
+
+.mat-drawer-inner-container {
+  padding-top: 24px;
 }
-.sidenav {
-  height: 1500px;
+.sidenav{
+transition: width 0.3s ease;
+  background: #f8f9fb;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e5e7eb;
 }
+ 
+ 
+
+mat-sidenav-container {
+   flex-grow: 1; 
+    width: auto;
+  display: block;    /* Fill the remaining space */
+  height: auto; /* Let flexbox handle the height */
+  position: sticky; /* Or fixed depending on your layout */
+  top: 76px !important;
+  overflow-y: auto;
+   padding:0 !important;
+  background:#f9fafb;
+     margin-left:2px ;
+ }
 
 .navbar {
   display: flex;
@@ -14,7 +36,35 @@
   padding: 0 20px;
   top: 0;
   z-index: 1000;
+   justify-content:space-between;
 }
+.navbar-collapsed{
+  margin-left: 70px;
+}
+.nav-actions {
+  display: flex; /* Aligns buttons and avatar in a single row */
+  flex-direction: row;
+  align-items: center; /* Centers items vertically */
+  gap: 12px; /* Spacing between elements */
+  position: fixed;
+  top: 10px;   /* Or match your toolbar height/padding */
+  right: 10px;
+  z-index: 1001; /* Ensure it is above the toolbar (which is 1000) */
+}
+mat-toolbar.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  
+}
+
+.nav-right{
+  flex:1;
+  display:flex;
+  justify-content:center;
+} 
 .logo-icon {
   font-size: 28px;
   background: #e6e6d4;
@@ -29,11 +79,11 @@
   font-weight: 700;
   transition: 0.3s;
   font-size: 22px;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .search-bar {
   margin-top: 20px;
-  max-width: 500px;
+  width: 420px;
   margin-right: 20px;
 }
 
@@ -60,10 +110,8 @@
   display: flex;
   align-items: center;
 }
-.nav-actions {
-  display: flex;
-  gap: 8px;
-}
+ 
+
 
 /* Custom button styling */
 .custom-icon-btn {
@@ -89,33 +137,51 @@
   color: #374151;
   margin-left: 200px;
 }
+ 
 .avatar {
+  display: flex; /* Ensures the image inside is handled correctly */
   width: 44px;
   height: 44px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #8a8b2c;
 }
 
 .avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .menu-text {
    
   font-size: 16px;
   gap: 16px;
+  font-weight: 500;
   padding: 12px 16px;
   letter-spacing: 1px;
   text-align: center;
   position: relative;
   top: -9px;
-  font-weight:100;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.2s;
+ 
+}
+
+.sidebar-menu {
+  margin-top: 24px;
+  /* padding: 12px; */
+   flex: 1;           /* Take up remaining space */
+  overflow-y: auto;  /* Enable scrolling */
+  min-height: 0;     /* Allow the flex item to shrink below content size */ /* Adjust this value as needed */
 }
 
 .sidebar-menu mat-icon {
   font-size: 22px;
+  margin: 0 !important;
+  color: #64748b;
+  width: 24px;
+  height: 24px;
 }
 
 .sidebar-menu .mat-mdc-list-item:hover {
@@ -134,9 +200,13 @@
 .upload-card {
   background: #f8f8f5f6;
   border-radius: 16px;
-  padding: 16px;
-  box-shadow: none;
-  margin-left: 5px;
+  border: 1px solid #e2e8f0;
+ box-shadow: 0 4px 6px -1px rgba(0,0,0,0);
+  margin-right: 50px;
+  margin-bottom: 140px;
+  margin-left: 25px;
+  
+   
 }
 
 /* Header */
@@ -184,4 +254,11 @@
   font-size: 12px;
   color: #8a8a3c;
   font-weight: 500;
+}
+
+/* Collapse behavior */
+.sidenav[style*="width: 70px"] .menu-text,
+.sidenav[style*="width: 70px"] .upload-card,
+.sidenav[style*="width: 70px"] .subtitle {
+  display: none;
 }

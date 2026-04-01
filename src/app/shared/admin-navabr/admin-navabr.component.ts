@@ -3,6 +3,7 @@ import { MatIcon } from "@angular/material/icon";
 import { MatNavList } from "@angular/material/list";
 import { MatSidenav, MatSidenavContainer, MatSidenavContent } from "@angular/material/sidenav";
  import { SuperAdminDashboardComponent } from "../../components/admin/super-admin-dashboard/super-admin-dashboard.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-navabr',
@@ -12,6 +13,14 @@ import { MatSidenav, MatSidenavContainer, MatSidenavContent } from "@angular/mat
   styleUrl: './admin-navabr.component.css'
 })
 export class AdminNavabrComponent {
- 
+
+
+   constructor(private router: Router) { }
+
+onLogout() {
+ // Clears saved tokens
+   // Clears session data
+  this.router.navigateByUrl('/'); // Hard redirect to login
+}
 
 }

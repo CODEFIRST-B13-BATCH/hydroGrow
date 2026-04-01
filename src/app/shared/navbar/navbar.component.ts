@@ -42,6 +42,7 @@ import { MatMenuModule } from '@angular/material/menu';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
+ 
 
   showCropsMenu = false;
 
@@ -79,5 +80,10 @@ export class NavbarComponent {
     }
   }
 
+  onLogout() {
+    console.log('Logging out...');
+     this.router.navigate(['/']);
+ 
+}
   
 }

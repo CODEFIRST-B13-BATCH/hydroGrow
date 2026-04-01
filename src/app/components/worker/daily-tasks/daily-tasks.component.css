@@ -5,8 +5,11 @@
     margin: 0 auto;
     font-family: 'Inter', Roboto, 'Helvetica Neue', sans-serif;
     color: #1a1a1a;
+     margin-top: 24px; /* Adjust this value as needed */
 }
 
+ 
+  
 /* Header Section */
 .dt-header {
     display: flex;

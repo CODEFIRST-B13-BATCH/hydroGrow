@@ -2,11 +2,12 @@
   height: 100%;
   overflow: hidden;
 }
- 
- 
-.page-content h1{
+
+
+.page-content h1 {
   padding-top: 40px;
 }
+
 .page-content p {
   font-size: 14px;
   color: #6b7280;
@@ -18,8 +19,8 @@
   padding-right: 25px;
   flex-direction: column;
   gap: 24px;
-  overflow:visible; 
- 
+  overflow: visible;
+
 }
 
 .dashboard-card {
@@ -28,6 +29,7 @@
   flex: 1;
   height: 100%;
 }
+
 .card-row {
   grid-column: 1 / span 3;
   display: grid;
@@ -40,6 +42,7 @@
   justify-content: space-between;
   margin-bottom: 10px;
 }
+
 .badge {
   background: #d8f5e3;
   color: #2e7d32;
@@ -55,13 +58,14 @@
   width: 100%;
   align-items: start;
 }
+
 /* Table */
 .Adduser {
   margin-top: 10px;
   margin-right: 60px;
   border-radius: 10px;
   background-color: #7c7b2c !important;
-  color: white !important ;
+  color: white !important;
 }
 
 .user-info {
@@ -155,6 +159,7 @@ table {
   align-items: center;
   margin-bottom: 15px;
 }
+
 .run {
   margin-top: 20px;
   size: 14px;
@@ -175,8 +180,9 @@ table {
   color: green;
 }
 
-.icon-warning{
-  color:#f59e0b;  /* amber-500 */
+.icon-warning {
+  color: #f59e0b;
+  /* amber-500 */
 }
 
 /* status */
@@ -196,6 +202,7 @@ table {
   background: #fef3c7;
   color: #b45309;
 }
+
 /* CHART + ALERT */
 .row-three {
   display: grid;
@@ -223,6 +230,7 @@ table {
   font-weight: 600;
   justify-content: space-between;
 }
+
 .dropdown {
   background: #f3f4f6;
   padding: 6px 12px;
@@ -304,19 +312,21 @@ table {
   border-color: #fecaca;
   font-weight: bold;
 }
-.alert-row.danger .title{
-  color:#b91c1c;
+
+.alert-row.danger .title {
+  color: #b91c1c;
 }
 
 /* description */
-.alert-row.danger .desc{
-  color:#ef4444;
+.alert-row.danger .desc {
+  color: #ef4444;
 }
 
 /* time */
-.alert-row.danger .time{
-  color:#ef4444;
+.alert-row.danger .time {
+  color: #ef4444;
 }
+
 .icon-box.danger {
   background: #fee2e2;
   color: #dc2626;
@@ -342,6 +352,7 @@ table {
   background: #e5e7eb;
   color: #6b7280;
 }
+
 .view-all {
   width: 100%;
   margin-top: 10px;
@@ -353,17 +364,22 @@ table {
   font-weight: bold;
   transition: 0.3s;
 }
+
 .view-all:hover {
   background: #e5e7eb;
 }
+
 @media (max-width: 600px) {
+
   .mat-column-access,
   .mat-column-action {
     display: none;
   }
 }
+
 @media (max-width: 768px) {
   .row-two {
-    grid-template-columns: 1fr; /*  stack vertically */
+    grid-template-columns: 1fr;
+    /*  stack vertically */
   }
 }

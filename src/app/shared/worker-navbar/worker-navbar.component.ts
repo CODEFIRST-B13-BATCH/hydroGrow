@@ -8,13 +8,15 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from "@angular/material/list";
-import { RouterLink } from "@angular/router";
+import { RouterLink, Router } from "@angular/router";
 import { MatCardModule } from "@angular/material/card";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-worker-navbar',
   standalone:true,
   imports: [
+    CommonModule,
     MatSidenavModule,
     MatButtonModule,
     MatInputModule,
@@ -33,6 +35,9 @@ import { MatCardModule } from "@angular/material/card";
 })
 export class WorkerNavbarComponent {
  
+
+    constructor(private router: Router) { }
+
  
 isCollapsed = false;
 fileInput: any;
@@ -50,5 +55,12 @@ onFileSelected(event: any) {
 
     //  later you can send this to backend
   }
+}
+
+onLogout() {
+  
+     this.router.navigate(['/']);
+        console.log('Logging out...');
+ 
 }
 }

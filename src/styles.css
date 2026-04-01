@@ -1,3 +1,4 @@
+ 
 /* You can add global styles to this file, and also import other style files */
  body {
   
@@ -6,11 +7,16 @@
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgb(247, 246, 245);
+  /* font-family: Roboto, "Helvetica Neue", sans-serif; */
 }
 
  .mat-drawer-inner-container{
   overflow: hidden !important;
+   display: flex;
+  flex-direction: column;
+  height: 100%;
+    
 }
 
  app-root {
@@ -21,3 +27,6 @@
   margin-left: 20px;
 }
  
+  mat-sidenav-container {
+  height: 100%;
+}
