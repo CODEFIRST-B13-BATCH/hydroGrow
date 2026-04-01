@@ -81,8 +81,9 @@ export class NavbarComponent {
   }
 
   onLogout() {
-    console.log('Logging out...');
-     this.router.navigate(['/']);
+   localStorage.removeItem('currentUser'); // Clear the session
+  sessionStorage.clear(); 
+  this.router.navigate(['/']);
  
 }
   

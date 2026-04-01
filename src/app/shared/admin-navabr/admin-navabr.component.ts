@@ -18,9 +18,9 @@ export class AdminNavabrComponent {
    constructor(private router: Router) { }
 
 onLogout() {
- // Clears saved tokens
-   // Clears session data
-  this.router.navigateByUrl('/'); // Hard redirect to login
+localStorage.removeItem('currentUser'); // Clear the session
+  sessionStorage.clear(); 
+  this.router.navigate(['/']);
 }
 
 }

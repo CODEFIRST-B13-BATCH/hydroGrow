@@ -58,9 +58,8 @@ onFileSelected(event: any) {
 }
 
 onLogout() {
-  
-     this.router.navigate(['/']);
-        console.log('Logging out...');
- 
+  localStorage.removeItem('currentUser'); // Clear the session
+  sessionStorage.clear(); 
+  this.router.navigate(['/']);
 }
 }

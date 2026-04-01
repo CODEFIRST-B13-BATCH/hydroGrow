@@ -26,17 +26,7 @@ user: any;
 showNavbar=true;
 
   constructor(private router: Router) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        // Hide navbar on login & register
-        console.log(event.url);
-        if (event.url === '/' || event.url === '/register') {
-          this.showNavbar = false;
-        } else {
-          this.showNavbar = true;
-        }
-      }
-    });
+    
   }
 
 
