@@ -25,9 +25,7 @@ user: any;
 
 showNavbar=true;
 
-  constructor(private router: Router) {
-    
-  }
+  constructor(private router: Router) { }
 
 
 
@@ -45,8 +43,7 @@ showNavbar=true;
     const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
     if(user?.role){
     this.userRole = user.role;
-
-    }
+  }
     
  
     // ONLY redirect if the user is at the root '/' or 'login'
