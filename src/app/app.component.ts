@@ -5,6 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { AdminNavabrComponent } from './shared/admin-navabr/admin-navabr.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { WorkerNavbarComponent } from './shared/worker-navbar/worker-navbar.component';
+ 
 
 @Component({
   selector: 'app-root',
@@ -16,14 +17,14 @@ import { WorkerNavbarComponent } from './shared/worker-navbar/worker-navbar.comp
     NavbarComponent,
     WorkerNavbarComponent,
   ],
-  templateUrl: './app.component.html',
+   templateUrl: './app.component.html',
 })
 export class AppComponent {
  
   userRole: string | null = "";
 user: any;
 
-showNavbar=true;
+showNavbar = true;
 
   constructor(private router: Router) { }
 

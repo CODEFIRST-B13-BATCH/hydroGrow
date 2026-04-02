@@ -8,6 +8,7 @@ import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-main-dashboard',
+  standalone: true,  
   imports: [MatCardModule, MatButtonModule, CommonModule, MatIconModule, MatListModule, MatDividerModule],
   templateUrl: './main-dashboard.component.html',
   styleUrls: ['./main-dashboard.component.css']

@@ -566,12 +566,12 @@ mat-icon {
   color: gray;
 }
 
-/* TASK ITEM */
-/* .task-item {
+/* TASK ITEM *
+  .task-item {
   display: flex;
   align-items: center;
   padding: 12px 16px;
-} */
+}  */
 
 /* ICON BOX */
 .task-icon {
