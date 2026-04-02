@@ -88,18 +88,21 @@
 
                                 <div>
                                     <div class="">
-                                        <mat-icon class="eco-icon"
+                                        @if (e.name === 'Genoese Basil') {
+  <mat-icon class="eco-icon">eco</mat-icon>
+}
 
-                                            @if (e.name === 'Genoese Basil')>eco</mat-icon>
+@if (e.name === 'Butterhead Lettuce') {
+  <mat-icon fontSet="material-symbols-outlined" class="spa-icon">
+    spa
+  </mat-icon>
+}
 
-                                        <mat-icon fontSet="material-symbols-outlined" class ="spa-icon"
-                                           @if (e.name === 'Butterhead Lettuce')>
-                                            spa
-                                        </mat-icon>
-
-                                        <mat-icon fontSet="material-symbols-outlined" class="nutrition" @if (e.name === 'Roma Tomatoes')>
-                                            nutrition
-                                        </mat-icon>
+@if (e.name === 'Roma Tomatoes') {
+  <mat-icon fontSet="material-symbols-outlined" class="nutrition">
+    nutrition
+  </mat-icon>
+}
                                     </div>
                                 </div>
 

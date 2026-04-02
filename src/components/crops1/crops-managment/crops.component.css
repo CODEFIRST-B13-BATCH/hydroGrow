@@ -1,10 +1,10 @@
 /* Main Container */
 .dashboard {
   /* display: flex; */
-  flex-direction: column;
+  /* flex-direction: column; */
   /* min-height: 100vh; */
   /* border: 1px solid red; */
-  /* margin-top: -45px; */
+  margin-top: 65px;
 }
 
 /* Header */
