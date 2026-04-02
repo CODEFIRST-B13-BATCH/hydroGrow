@@ -1,0 +1,196 @@
+<p>crop-health works!</p>
+<div class="page-wrapper">
+    
+    <div class="main-content">
+        <!-- Header -->
+        <div class="page-header">
+            <div class="header-title">
+                <h2>Crop Health Detection</h2>
+                <p>Upload photos for instant AI-powered pathological analysis.</p>
+            </div>
+            <button matButton="outlined" class="export-btn">
+                <span class="material-symbols-outlined">file_download</span>
+                Export Reports
+            </button>
+        </div>
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Analysis Card -->
+                <mat-card class="analysis-card">
+                    <!-- Card Header -->
+                    <div class="card-header-bar">
+                        <div class="card-header-title">
+                            <span class="material-symbols-outlined">biotech</span>
+                            Latest Analysis Result
+                        </div>
+                        <span class="scan-id-badge">{{ scanId }}</span>
+                    </div>
+                    <!-- Card Content -->
+                    <mat-card-content>
+                        <div class="card-body">
+                            <!-- Left: Image -->
+                            <div class="leaf-image-container">
+                                <img [src]="leafImageUrl" alt="Tomato leaf" />
+                                <div class="bounding-box">
+                                    <span class="lesion-label">Lesion Detected</span>
+                                </div>
+                                <div class="heatmap-badge">
+                                    <div class="heatmap-dot"></div>
+                                    Heatmap Overlay Active
+                                </div>
+                            </div>
+                            <!-- Right: Diagnosis -->
+                            <div class="diagnosis-section">
+                                <!-- Disease Name -->
+                                <div>
+                                    <p class="diagnosis-label">{{ diagnosisLabel }}</p>
+                                    <h4 class="disease-name" [style.color]="diagnosisColor">
+                                        {{ diseaseName }}
+                                    </h4>
+                                    <div class="confidence-row">
+                                        <mat-progress-bar class="confidence-bar" mode="determinate"
+                                            [value]="confidenceScore">
+                                        </mat-progress-bar>
+                                        <span class="confidence-score">
+                                            {{ confidenceScore }}% Confidence
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- Recommended Actions -->
+                                <div class="actions-box">
+                                    <div class="actions-label">
+                                        <span class="material-symbols-outlined">tips_and_updates</span>
+                                        Recommended Actions
+                                    </div>
+                                    <ul class="actions-list">
+                                        @for(action of recommendedActions; track action) {
+                                        <li class="action-item">
+                                            <span class="material-symbols-outlined">check_circle</span>
+                                            <span>{{ action }}</span>
+                                        </li>
+                                        }
+                                    </ul>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="diagnosis-buttons">
+                                    <button matButton="filled" class="apply-btn">
+                                        Apply to Field Logs
+                                    </button>
+                                    <button matButton="outlined" class="share-btn">
+                                        <span class="material-symbols-outlined">share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <!-- Card + table-->
+                <mat-card class="recent-card">
+                    <!-- Card Header -->
+                    <div class="recent-card-header">
+                        <span class="material-symbols-outlined">history</span>
+                        Recent Analyses
+                    </div>
+                    <!-- Table -->
+                    <mat-table [dataSource]="recentAnalyses" class="analyses-table">
+                        <!-- Thumbnail Column -->
+                        <ng-container matColumnDef="thumbnail">
+                            <th mat-header-cell *matHeaderCellDef>Thumbnail</th>
+                            <td mat-cell *matCellDef="let row" class="thumbnail-cell">
+                                <img [src]="row.thumbnailUrl" alt="crop thumbnail" />
+                            </td>
+                        </ng-container>
+                        <!-- Crop Type -->
+                        <ng-container matColumnDef="cropType">
+                            <th mat-header-cell *matHeaderCellDef>Crop Type</th>
+                            <td mat-cell *matCellDef="let row">
+                                <span class="crop-name">{{ row.cropType }}</span>
+                            </td>
+                        </ng-container>
+                        <!-- Scan Date-->
+                        <ng-container matColumnDef="scanDate">
+                            <th mat-header-cell *matHeaderCellDef>Scan Date</th>
+                            <td mat-cell *matCellDef="let row">
+                                <span class="scan-date">{{ row.scanDate }}</span>
+                            </td>
+                        </ng-container>
+                        <!-- Status Column -->
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef>Status</th>
+                            <td mat-cell *matCellDef="let row">
+                                <span class="status-badge" [class]="row.statusType">
+                                    <span class="status-dot" [class]="row.statusType"></span>
+                                    {{ row.status }}
+                                </span>
+                            </td>
+                        </ng-container>
+                        <!-- Action -->
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef>Action</th>
+                            <td mat-cell *matCellDef="let row">
+                                <button matButton class="view-details-btn">View Details</button>
+                            </td>
+                        </ng-container>
+                        <!-- sequence for tableheader-->
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-header-row"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </mat-table>
+                </mat-card>
+            </div>
+            <!-- Right Column -->
+            <div class="right-column">
+                <mat-card class="upload-card">
+                    <div class="upload-card-header">
+                        <span class="material-symbols-outlined">add_a_photo</span>
+                        {{ uploadTitle }}
+                    </div>
+                    <div class="upload-area">
+                        <div class="upload-icon-circle">
+                            <span class="material-symbols-outlined">upload_file</span>
+                        </div>
+                        <p class="upload-title">Drop leaf photo here</p>
+                        <p class="upload-subtitle">or click to browse from device</p>
+                        <button matButton="filled" class="select-file-btn">
+                            Select File
+                        </button>
+                    </div>
+                </mat-card>
+                <!-- Chatbot Card -->
+                <mat-card class="chatbot-card">
+                    <div class="chatbot-header">
+                        <div class="chatbot-header-left">
+                            <span class="material-symbols-outlined">smart_toy</span>
+                            AI Farm Advisor
+                        </div>
+                        <div class="chatbot-online-dot"></div>
+                    </div>
+                    <!-- Messages -->
+                    <div class="chatbot-messages" #chatWindow>
+                        @for(message of chatMessages; track message.text) {
+                        <div class="message-row" [class]="message.sender">
+                            <div class="message-avatar" [class]="message.sender">
+                                <span class="material-symbols-outlined">
+                                    {{ message.sender === 'bot' ? 'smart_toy' : 'person' }}
+                                </span>
+                            </div>
+                            <div class="message-bubble" [class]="message.sender">
+                                {{ message.text }}
+                            </div>
+                        </div>
+                        }
+                    </div>
+                    <!-- Input Area -->
+                    <div class="chatbot-input-area">
+                        <input class="chat-input" type="text" placeholder="Ask about your crops..." name="userInput"
+                            [(ngModel)]="userInput" (keyup.enter)="sendMessage()" />
+                        <button matButton class="send-btn" (click)="sendMessage()">
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
