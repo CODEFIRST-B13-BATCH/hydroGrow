@@ -1,0 +1,28 @@
+/* app.component.css */
+
+ 
+
+/* This is your Navbar/Sidebar component */
+app-admin-navabr, 
+app-worker-navbar, 
+app-navbar {
+  display: block;
+  flex-shrink: 0; /* Prevents the sidebar from getting squished */
+  /* Width should match your CSS: 240px */
+  width: 240px; 
+  height: 100%;
+}
+
+ 
+ 
+.page-content {
+  flex-grow: 1; /* Tells the dashboard to take up all remaining width */
+   
+   height: calc(100vh - 64px);
+  overflow-y: auto; /* This allows ONLY the dashboard data to scroll */
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column; /* Stack cards vertically */
+  align-items: center;
+}
+ 
