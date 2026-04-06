@@ -1,5 +1,16 @@
-<!-- <app-login></app-login> -->
-<app-navbar *ngIf="showNavbar"></app-navbar>
-<!-- <app-super-admin-dashboard></app-super-admin-dashboard> -->
- <!-- <app-daily-tasks></app-daily-tasks> -->
-<router-outlet ></router-outlet>
+<div class="main-container" style="display: flex; flex-direction: row; height: 100vh; width: 100vw; overflow: hidden;">
+ 
+  <!-- <ng-container *ngIf="showNav()"> -->
+    <div style="width: 240px; flex-shrink: 0; height: 100%;">
+   
+
+      <app-admin-navabr *ngIf="userRole === 'admin' && showNav()"></app-admin-navabr>
+      <app-worker-navbar *ngIf="userRole === 'farm-worker'&& showNav() "></app-worker-navbar>
+      <app-navbar *ngIf="userRole === 'farm-owner' && showNav()"></app-navbar>
+    </div>
+  <!-- </ng-container> -->
+
+  <main class="page-content" style="flex-grow: 1; height: auto; overflow-y: auto; padding: 20px;">
+    <router-outlet/>
+  </main>
+</div>
