@@ -14,7 +14,17 @@ transition: width 0.3s ease;
   border-right: 1px solid #e5e7eb;
 }
  
- 
+ .user-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.user-role {
+  font-size: 14px;
+  color: #6b7280;
+}
+
 
 mat-sidenav-container {
    flex-grow: 1; 

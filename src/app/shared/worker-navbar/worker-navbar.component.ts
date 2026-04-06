@@ -35,7 +35,8 @@ import { CommonModule } from '@angular/common';
 })
 export class WorkerNavbarComponent {
  
-
+ userName: string = "";
+  userRole:  string = "";
     constructor(private router: Router) { }
 
  
@@ -57,9 +58,24 @@ onFileSelected(event: any) {
   }
 }
 
+ ngOnInit() {
+    const data = localStorage.getItem('currentUser');
+
+    if (data) {
+      const activeUser = JSON.parse(data);
+
+      this.userName = activeUser?.fullName || '';
+      this.userRole = activeUser?.role || '';
+
+      console.log("User:", activeUser);
+    } else {
+      console.log("No user found in localStorage");
+    }
+  }
+
 onLogout() {
-  localStorage.removeItem('currentUser'); // Clear the session
-  sessionStorage.clear(); 
+   localStorage.removeItem('currentUser'); // Clear the session
+  // sessionStorage.clear(); 
   this.router.navigate(['/']);
 }
 }

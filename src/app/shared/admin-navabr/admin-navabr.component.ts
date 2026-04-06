@@ -14,8 +14,24 @@ import { Router } from '@angular/router';
 })
 export class AdminNavabrComponent {
 
-
+ userName: string = "";
+  userRole:  string = "";
    constructor(private router: Router) { }
+
+   ngOnInit() {
+    const data = localStorage.getItem('currentUser');
+
+    if (data) {
+      const activeUser = JSON.parse(data);
+
+      this.userName = activeUser?.fullName || '';
+      this.userRole = activeUser?.role || '';
+
+      console.log("User:", activeUser);
+    } else {
+      console.log("No user found in sessionStorage");
+    }
+  }
 
 onLogout() {
 localStorage.removeItem('currentUser'); // Clear the session

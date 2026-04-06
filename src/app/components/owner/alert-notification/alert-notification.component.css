@@ -2,7 +2,7 @@
 .dashboard-wrapper {
   display: flex;
   gap: 24px;
-  padding: 20px;
+  padding: 60px;
   background: rgb(247, 246, 245);
   min-height: 100vh;
   box-sizing: border-box;
