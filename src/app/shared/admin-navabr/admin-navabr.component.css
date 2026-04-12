@@ -2,13 +2,39 @@
   height: 100vh; 
 }  
 
+.navbar {
+  display: flex;
+  position: sticky;
+ padding: 0 20px;
+  top: 0;
+  z-index: 1000;
+  margin-left: -3px;
+ }
+.navbar-collapsed{
+  margin-left: 70px;
+}
 .sidebar {
+    transition: width 0.3s ease;
+  overflow: hidden;
+  min-width: unset !important;
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: white;
+}
+
+.sidebar-header {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 8px; /* Optional: adds space between the icon and the logo text */
+}
+.sidebar-header button {
+  position: relative;
+  z-index: 1;
 }
 .mat-sidenav.sidebar {
-  width: 240px;
+  width: 245%;
 }
 .sidebar-menu a {
   display: flex !important;
@@ -22,7 +48,14 @@
   font-size: 22px;
 }
 
- 
+ /* Example logic for when the sidebar is collapsed */
+.sidebar.collapsed .logo-text {
+  display: none;
+}
+
+.sidebar.collapsed .logo {
+  width: auto;
+}
 .menu-text {
   margin-left: 22px;
   position: relative;
@@ -30,12 +63,15 @@
   font-size: 16px;
 }
 .logo {
-    margin-top: 10px;
+    margin-top: 6px;
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 30px;
- 
+  margin-bottom: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+   margin-top:-16px;
 }
 
 .logo-icon {
@@ -44,7 +80,8 @@
   padding: 10px;
   border-radius: 50%;
   color: white;
-  margin-left: 17px;
+  margin-left: 57px;
+  
    background: #7a7b2f;
 }
 
@@ -80,16 +117,21 @@ mat-nav-list a {
   font-size: 16px;
   color: #4b5563;
 }
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .sidebar-footer {
-  position: relative;
+  margin-top: 152%;   /* 🔥 dynamic spacing automatically */
   padding: 12px;
   border-top: 1px solid #eee;
-   margin-top: 320px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
+
 
 
 
@@ -138,4 +180,23 @@ mat-nav-list a {
 .sidebar-menu a.active-link .menu-text {
   color: #7a7b2f;
 }
- 
+ /* 🔥 Hover Effect for menu items */
+.sidebar-menu a:hover {
+  background: #e8f5e9;   /* light green */
+  transform: translateX(5px); /* move right */
+  transition: all 0.3s ease;
+}
+
+/* Icon hover */
+.sidebar-menu a:hover mat-icon {
+  color: #7a7b2f;   /* olive green (matching your theme) */
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+
+/* Text hover */
+.sidebar-menu a:hover .menu-text {
+  color: #7a7b2f;
+  font-weight: 600;
+  transition: 0.3s;
+}
