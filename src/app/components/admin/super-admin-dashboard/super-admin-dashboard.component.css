@@ -28,6 +28,7 @@
   border-radius: 12px;
   flex: 1;
   height: 100%;
+  background-color: white;
 }
 
 .card-row {
@@ -120,7 +121,7 @@ table {
 }
 
 .table-card {
-  width: 100%;
+  width: 96%;
   background-color: white;
   border-radius: 20px;
   overflow-x: auto;
@@ -143,8 +144,9 @@ table {
 .system-card {
   padding: 20px;
   /* height: fit-content; */
-  width: 100%;
+  width: 97%;
   min-height: 300px;
+  background-color: white;
 }
 
 .card-title {
@@ -212,10 +214,10 @@ table {
 }
 
 .chart-card {
-  background: #f6f6f6;
+  background:white;
   padding: 20px;
   border-radius: 12px;
-  width: 100%;
+  width: 96%;
 }
 
 .chart-header {
@@ -246,6 +248,7 @@ table {
   border-radius: 12px;
   width: 100%;
   min-height: 400px;
+  background-color: white;
 }
 
 /* header */
