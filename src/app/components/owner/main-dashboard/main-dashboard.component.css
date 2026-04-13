@@ -3,8 +3,8 @@
 
   margin-top: 70px;
 
-  width: 95%; /* Give it a little breathing room on the sides */
-  max-width: 1200px; /* Prevents it from stretching too far */
+  width: 100%; /* Give it a little breathing room on the sides */
+  max-width: 1400px; /* Prevents it from stretching too far */
   display: block;
 }
 
