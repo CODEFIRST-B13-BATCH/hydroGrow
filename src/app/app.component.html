@@ -1,9 +1,7 @@
 <div class="main-container" style="display: flex; flex-direction: row; height: 100vh; width: 100vw; overflow: hidden;">
  
   <!-- <ng-container *ngIf="showNav()"> -->
-    <div style="width: 240px; flex-shrink: 0; height: 100%;">
-   
-
+    <div>
       <app-admin-navabr *ngIf="userRole === 'admin' && showNav()"></app-admin-navabr>
       <app-worker-navbar *ngIf="userRole === 'farm-worker'&& showNav() "></app-worker-navbar>
       <app-navbar *ngIf="userRole === 'farm-owner' && showNav()"></app-navbar>

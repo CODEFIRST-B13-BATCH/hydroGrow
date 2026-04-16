@@ -1,62 +1,59 @@
- .layout-container {
-  height: 100vh; 
-}  
+/* ================== LAYOUT ================== */
+.layout-container {
+  min-height: 100vh;
+}
+ 
 
+/* ================== SIDEBAR ================== */
 .sidebar {
+  transition: width 0.3s ease;
+  overflow: hidden;
+  min-width: 50px !important;
   display: flex;
   flex-direction: column;
-  height: 100%;
-}
-.mat-sidenav.sidebar {
-  width: 240px;
-}
-.sidebar-menu a {
-  display: flex !important;
-  align-items: center;
-  gap: 12px;
-  /* space between icon and text */
-  padding: 12px 16px;
-}
-
-.sidebar-menu mat-icon {
-  font-size: 22px;
+   
+  background-color: white;
+   height: 100vh;
 }
 
  
-.menu-text {
-  margin-left: 22px;
+/* ================== SIDEBAR HEADER ================== */
+.sidebar-header {
+  display: flex;
   position: relative;
-  top: -9px;
-  font-size: 16px;
+  align-items: center;
+  gap: 8px;
 }
-.logo {
-    margin-top: 10px;
+
+.sidebar-header button {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================== LOGO ================== */
+ .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 30px;
- 
+  gap: 10px;
+  margin-bottom: 0px;
+}.sidebar-header button {
+  background-color:white;
+  color:grey; /* Often needed for contrast */
 }
 
 .logo-icon {
-  font-size: 28px;
-  background: #e6e6d4;
-  padding: 10px;
-  border-radius: 50%;
-  color: white;
-  margin-left: 17px;
-   background: #7a7b2f;
+  font-size: 20px;
+  background:#7a7b2f;
+  padding: 8px;
+  border-radius: 20px;
+  color:white;
+  margin-left: 0px;
 }
-
-.logo-icon span {
-  font-size: 32px;
-  color: #7c7a2b;
-}
-
-.logo-text h3 {
+ .logo-text h3 {
   margin: 0;
   color: #1f2937;
   font-weight: 700;
+  transition: 0.3s;
   font-size: 22px;
 }
 
@@ -67,10 +64,72 @@
   color: #6b7280;
   letter-spacing: 1px;
 }
-mat-nav-list a:hover {
-  background: #f3f4f6;
+
+.menu-text {
+  margin-left: 22px;
+  position: relative;
+  top: -9px;
+  font-size: 18px;
+}
+/* ================== MENU ================== */
+.sidebar-menu a {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
 }
 
+.sidebar-menu mat-icon {
+  font-size: 22px;
+  margin-left: -17px;
+}
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column; /* This allows us to use 'margin-top: auto' */
+  height: 100vh;          /* Sidebar takes full screen height */
+  position: fixed;        /* This keeps it from moving when you scroll */
+  left: 0;
+  top: 0;
+  background: white;
+  border-right: 1px solid #eee;
+  z-index: 1001;          /* Stay above everything */
+  transition: width 0.3s ease; /* Ensures the sidebar takes full height */
+}
+/* Ensure the top part (Logo + Menu) stays grouped */
+.sidebar-top-section {
+  flex-shrink: 0;
+}
+ 
+
+/* ================== ACTIVE + HOVER ================== */
+.sidebar-menu a.active-link {
+  background-color: #d6d3b1;
+  border-radius: 12px;
+  color: #7a7b2f;
+}
+
+.sidebar-menu a.active-link mat-icon,
+.sidebar-menu a.active-link .menu-text {
+  color: #7a7b2f;
+}
+
+.sidebar-menu a:hover {
+  background: #e8f5e9;
+  transform: translateX(5px);
+  transition: all 0.3s ease;
+}
+
+.sidebar-menu a:hover mat-icon {
+  color: #7a7b2f;
+  transform: scale(1.2);
+}
+
+.sidebar-menu a:hover .menu-text {
+  color: #7a7b2f;
+  font-weight: 600;
+}
+
+/* ================== NAV LIST ================== */
 mat-nav-list a {
   display: flex;
   align-items: center;
@@ -80,25 +139,55 @@ mat-nav-list a {
   font-size: 16px;
   color: #4b5563;
 }
-.sidebar-footer {
-  position: relative;
-  padding: 12px;
-  border-top: 1px solid #eee;
-   margin-top: 320px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
+
+mat-nav-list a:hover {
+  background: #f3f4f6;
+}
+
+/* ================== COLLAPSED ================== */
+.sidebar.collapsed .logo-text {
+  display: none;
 }
 
 
+.sidebar.collapsed .logo {
+  width: auto;
+}
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+}
+/* ================== FOOTER (🔥 FIXED ISSUE) ================== */
+ 
+
+.sidebar-footer {
+  display: flex;
+  align-items: center; /* Vertically centers the items */
+  justify-content: space-between; /* Pushes content to the edges if desired */
+  gap: 12px; /* Adds space between the user info and logout button */
+  padding: 10px; /* Optional: adds some internal spacing */
+     margin-top: auto;
+}
 
 .user-info {
   display: flex;
   align-items: center;
-  gap: 10px;
+  width: auto; /* Removes the fixed width causing the overflow */
+  flex-grow: 1; /* Allows it to take up remaining space */
+  overflow: hidden;
+   /* Prevents long text from breaking the layout */
 }
 
+.logout-btn {
+  flex-shrink: 0; /* Ensures the button doesn't get squashed */
+}
+/* ================== USER ================== */
+ 
+.user-text{
+   margin-left: 12px;
+}
 .avatar {
   width: 40px;
   height: 40px;
@@ -106,7 +195,7 @@ mat-nav-list a {
 }
 
 .user-name {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -114,6 +203,7 @@ mat-nav-list a {
   font-size: 12px;
   color: gray;
 }
+
 .logout-btn {
   width: 36px;
   height: 36px;
@@ -122,20 +212,36 @@ mat-nav-list a {
   transition: 0.3s;
 }
 
-/* Hover like your UI */
 .logout-btn:hover {
   background-color: #f1f5f9;
   color: #111827;
 }
-.sidebar-menu a.active-link {
-  background-color: #d6d3b1; /* light olive like your UI */
-  border-radius: 12px;
-  color: #7a7b2f;
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 1024px) {
+  .mat-sidenav.sidebar {
+    width: 200px;
+  }
+
+  .menu-text {
+    font-size: 14px;
+  }
 }
 
-/* icon + text color */
-.sidebar-menu a.active-link mat-icon,
-.sidebar-menu a.active-link .menu-text {
-  color: #7a7b2f;
+@media (max-width: 768px) {
+  .mat-sidenav.sidebar {
+    width: 70px;
+  }
+
+  .menu-text {
+    display: none;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
 }
- 

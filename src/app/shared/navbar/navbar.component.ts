@@ -65,7 +65,7 @@ export class NavbarComponent {
   }
 
     ngOnInit() {
-    const data = sessionStorage.getItem('currentUser');
+    const data = localStorage.getItem('currentUser');
 
     if (data) {
       const activeUser = JSON.parse(data);

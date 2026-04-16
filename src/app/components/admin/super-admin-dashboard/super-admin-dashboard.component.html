@@ -42,8 +42,9 @@
         <mat-card class="table-card">
           <div class="table-header">
             <h3>User Management</h3>
-            <button mat-raised-button class="Adduser">Add User</button>
-          </div>
+<button mat-raised-button class="Adduser" (click)="addUser()">
+  Add User
+</button>  </div>
 
           <table mat-table [dataSource]="users" class="user-table">
             <!-- User -->
@@ -139,8 +140,7 @@
           <div class="chart-header">
             <h3>Platform-wide Productivity</h3>
 
-            <mat-select [(value)]="selectedRange" class="dropdown">
-              <mat-option value="7">Last 7 Days</mat-option>
+<mat-select [(value)]="selectedRange" (selectionChange)="onRangeChange($event.value)" class="dropdown">              <mat-option value="7">Last 7 Days</mat-option>
               <mat-option value="30">Last 30 Days</mat-option>
             </mat-select>
           </div>

@@ -8,25 +8,24 @@
         <mat-toolbar color="primary" class="header">
 
             <div class="header-text">
-                <h1>Crop Inventory & Planting Schedule</h1>
+                <h2>Crop Inventory & Planting Schedule</h2>
                 <p>Manage growth cycles and harvest timelines for all active hydroponic batches.</p>
             </div>
 
             <span class="spacer"></span>
 
-            <button
-                style="border: 1px solid black; height: 45px; width: 120px; background-color: darkolivegreen;  color: wheat; border-radius: 10px; border: none;">
+            <button style="height: 45px; width: 150px; background-color: darkolivegreen;  color: wheat;"
+                mat-raised-button color="primary">
                 + Add New Crop
             </button>
 
-            <button
-                style="border: 1px solid black; height: 40px; width: 150px; margin: 10px; border-radius: 10px; background-color: white; color: black; ">
+            <button style="height: 40px; width: 150px;" mat-stroked-button>
                 Log Maintenance
             </button>
 
             <button mat-icon-button>
                 <mat-icon
-                    style="border: 1px solid rgba(15, 0, 0, 0.416); height: 30px; width: 30px; margin-top: -10px; border-radius: 10px; padding: 4px;">download</mat-icon>
+                    style="border: 1px solid rgba(15, 0, 0, 0.416); height: 30px; width: 40px; margin-top: -10px; border-radius: 10px; padding: 4px;">download</mat-icon>
             </button>
         </mat-toolbar>
 
@@ -71,7 +70,7 @@
                         mat-stroked-button>Leafy Greens</button>
                     <!-- <mat-chip class="custom-chip">Leafy Greens</mat-chip> -->
                     <button
-                        style="background-color: #33415543; color: black; height: 30px; width: 100px; font-size: 10px; border: none;"
+                        style="background-color: #33415543; color: black; height: 30px; width: 250px; font-size: 10px; border: none;"
                         mat-stroked-button>Tomatoes</button>
                 </div>
             </div>
@@ -86,22 +85,10 @@
                         <th *matHeaderCellDef class="header-cell">Crop Variety</th>
                         <td *matCellDef="let e">
                             <div class="cell-flex">
-
-                                <div>
-                                    <div class="">
-                                        <mat-icon
-                                            style=" background-color: rgba(0, 128, 0, 0.277); color: green ; height: 30px; width: 30px; text-align: center; border-radius: 5px;"
-                                            *ngIf="e.name === 'Genoese Basil'">eco</mat-icon>
-
-                                        <mat-icon fontSet="material-symbols-outlined"
-                                            *ngIf="e.name === 'Butterhead Lettuce'"
-                                            style="color: antiquewhite;background-color: orange; height: 30px; width: 30px; border-radius: 5px; text-align: center;">spa</mat-icon>
-
-                                        <mat-icon fontSet="material-symbols-outlined" *ngIf="e.name === 'Roma Tomatoes'"
-                                            style="color: red; background-color: plum; height: 30px; width: 30px; text-align: center; border-radius: 5px;">nutrition</mat-icon>
-                                    </div>
+                                <div class="icon-box green">
+                                    <mat-icon>eco</mat-icon>
                                 </div>
-
+                            
                                 <div>
                                     <div class="title" style="font-size: 13px;">{{e.name}}</div>
                                     <div class="sub" style="color: #e2e8f0;">{{e.batch}}</div>
@@ -111,25 +98,15 @@
                     </ng-container>
 
                     <!-- Growth -->
-                   <ng-container matColumnDef="growth">
-  <th *matHeaderCellDef class="header-cell">Growth Stage</th>
-  <td *matCellDef="let e">
-    <div class="growth-cell">
-
-    <span class="chip"
-  [ngClass]="{
-    'blue': e.stage?.trim().toLowerCase() === 'vegetative',
-    'purple': e.stage?.trim().toLowerCase() === 'mature',
-    'orange': e.stage?.trim().toLowerCase() === 'flowering'
-  }">
-  {{ e.stage }}
-</span>
-
-      <mat-progress-bar [value]="e.progress"></mat-progress-bar>
-
-    </div>
-  </td>
-</ng-container>
+                    <ng-container matColumnDef="growth">
+                        <th *matHeaderCellDef class="header-cell">Growth Stage</th>
+                        <td *matCellDef="let e">
+                            <div class="growth-cell">
+                                <span class="chip blue" style="">{{e.stage}}</span>
+                                <mat-progress-bar [value]="e.progress"></mat-progress-bar>
+                            </div>
+                        </td>
+                    </ng-container>
 
                     <!-- Health -->
                     <ng-container matColumnDef="health">
@@ -202,7 +179,7 @@
                     <div class="spacer"></div>
                     <div class="week">Week 1</div>
                     <div class="week">Week 2</div>
-                    <div class="cWeek" style="font-size: 10px;">Current Week</div>
+                    <div class="" style="font-size: 10px;">Current Week</div>
                     <div class="week">Week 4</div>
                     <div class="week">Week 5</div>
                 </div>
@@ -215,9 +192,7 @@
                     </div>
 
                     <div class="bar">
-                        <div class="growth" style="width: 60%; padding-right: 10px; text-align: right;">
-                            Growth Phase
-                        </div>
+                        <div class="growth" style="width: 60%; padding-right: 10px;" >Growth Phase</div>
                         <div class="harvest" style="left:85%; width:15%">Harvest</div>
                     </div>
                 </div>
@@ -231,7 +206,7 @@
 
                     <div class="bar">
                         <div class="growth" style="width:45%"></div>
-                        <div class="mature" style="left:46.5%; width:10% ;">Mature</div>
+                        <div class="mature" style="left:46.5%; width:10%">Mature</div>
                         <div class="current" style="left:55%; width:15%">Current Harvest</div>
                     </div>
                 </div>
