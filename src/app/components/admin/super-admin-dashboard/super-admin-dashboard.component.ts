@@ -13,11 +13,8 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-super-admin-dashboard',
-<<<<<<< HEAD
-  imports: [MatCardModule, MatButtonModule, MatIcon, MatNavList, MatTableModule, MatSelectModule,NgClass, MatSidenavModule,MatGridListModule,  ],
-=======
   standalone: true,
-  imports: [
+  imports:[
     MatCardModule,
     MatButtonModule,
     MatIcon,
@@ -29,7 +26,6 @@ import { FormsModule } from '@angular/forms';
     MatGridListModule,
     FormsModule
   ],
->>>>>>> 22906e824458f2c45b2437e1eae94942e3d1dcc7
   templateUrl: './super-admin-dashboard.component.html',
   styleUrl: './super-admin-dashboard.component.css',
 })
