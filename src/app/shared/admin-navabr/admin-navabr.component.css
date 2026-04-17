@@ -159,7 +159,7 @@ mat-nav-list a:hover {
   gap: 10px;
   padding: 10px 16px;
 }
-/* ================== FOOTER (🔥 FIXED ISSUE) ================== */
+/* ================== FOOTER ================== */
  
 
 .sidebar-footer {
@@ -229,19 +229,13 @@ mat-nav-list a:hover {
 }
 
 @media (max-width: 768px) {
-  .mat-sidenav.sidebar {
-    width: 70px;
+  .sidebar-wrapper {
+    position: fixed;
+    transform: translateX(-100%);
   }
 
-  .menu-text {
-    display: none;
+  .sidebar-wrapper.open {
+    transform: translateX(0);
   }
 
-  .logo-text {
-    display: none;
-  }
-
-  .navbar {
-    padding: 10px;
-  }
 }
