@@ -13,7 +13,8 @@
 .container {
   max-width: 1000px;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
+  margin-top: 40px;
 }
 
 /* BREADCRUMB */
@@ -81,9 +82,7 @@ textarea {
 
 }
 
-.textarea {
-  height: 150px;
-}
+
 
 
 /* UPLOAD BOX */
@@ -93,9 +92,10 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 150px;
+  min-height: 129px;
   background: #fafafa;
-  width: 450px;
+
+  
 }
 
 .upload-content {
@@ -163,6 +163,7 @@ textarea.ng-touched.ng-invalid {
   text-align: center;
   cursor: pointer;
   border-radius: 10px;
+ 
 }
 
 .upload-icon {
@@ -232,13 +233,48 @@ textarea.ng-touched.ng-invalid {
 
 /* Tablet */
 @media (max-width: 1024px) {
+  .container {
+    padding: 15px;
+  }
+
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .upload-wrapper {
+    width: 100%;
+  }
+
+  .preview-container {
+    gap: 8px;
+  }
+
+  .image-box,
+  .add-box {
+    width: 50px;
+    height: 50px;
+  }
+
+  .upload-box {
+    min-height: 100px;
+    padding: 15px;
+  }
+
+  .upload-icon {
+    font-size: 30px;
   }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
+
+  .container {
+    padding: 10px;
+  }
 
   .grid-3,
   .grid-4,
@@ -248,5 +284,116 @@ textarea.ng-touched.ng-invalid {
 
   .actions {
     flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .upload-wrapper {
+    width: 100%;
+  }
+
+  .upload-box {
+    min-height: 80px;
+    padding: 10px;
+  }
+
+  .upload-icon {
+    font-size: 24px;
+  }
+
+  .preview-container {
+    gap: 6px;
+  }
+
+  .image-box,
+  .add-box {
+    width: 45px;
+    height: 45px;
+  }
+
+  .remove-btn {
+    font-size: 10px;
+  }
+
+  .info-box {
+    padding: 10px;
+  }
+
+  .form {
+    padding: 15px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+  .container {
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .form {
+    padding: 12px;
+  }
+
+  .grid {
+    gap: 10px;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 8px;
+  }
+
+  .textarea {
+    height: 130px;
+  }
+
+  .upload-box {
+    min-height: 70px;
+    padding: 8px;
+  }
+
+  .upload-icon {
+    font-size: 20px;
+  }
+
+  .preview-container {
+    gap: 4px;
+  }
+
+  .image-box,
+  .add-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .remove-btn {
+    font-size: 8px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .info-box {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 8px 16px;
   }
 }
