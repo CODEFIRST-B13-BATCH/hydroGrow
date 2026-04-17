@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-super-admin-dashboard',
   standalone: true,
-  imports: [
+  imports:[
     MatCardModule,
     MatButtonModule,
     MatIcon,

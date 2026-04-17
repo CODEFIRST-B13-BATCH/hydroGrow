@@ -2,6 +2,15 @@
   height: calc(100vh - 64px);  
   margin-left: 10px;
   }
+  @media (min-width: 769px) {
+  .layout-container {
+    margin-left: 240px; /* sidebar width */
+  }
+
+  .layout-container.collapsed {
+    margin-left: 70px;
+  }
+}
 
 
   .sidebar-header {
@@ -40,7 +49,10 @@ transition: width 0.3s ease;
   font-size: 14px;
   color: #6b7280;
 }
-
+mat-icon.mat-icon {
+  overflow: visible; /* Prevents clipping of the icon glyph */
+  flex-shrink: 0;    /* Prevents the icon from being squashed by the text */
+}
 
 mat-sidenav-container {
    flex-grow: 1; 
@@ -53,6 +65,7 @@ mat-sidenav-container {
    padding:0 !important;
   background:#f9fafb;
      margin-left:2px ;
+     
  }
 
 .navbar {
@@ -72,11 +85,12 @@ mat-sidenav-container {
   flex-direction: row;
   align-items: center; /* Centers items vertically */
   gap: 12px; /* Spacing between elements */
-  position: fixed;
+  position: static;
   top: 10px;   /* Or match your toolbar height/padding */
   right: 10px;
   z-index: 1001; /* Ensure it is above the toolbar (which is 1000) */
 }
+
 mat-toolbar.navbar {
   position: fixed;
   top: 0;
@@ -114,6 +128,7 @@ mat-toolbar.navbar {
   margin-top: 20px;
   width: 420px;
   margin-right: 20px;
+    margin-top: 0;
 }
 
 /* background + radius */
@@ -164,7 +179,7 @@ mat-toolbar.navbar {
 .notification-btn {
   position: relative;
   color: #374151;
-  margin-left: 200px;
+  margin-left: 0px;
 }
  
 .avatar {
@@ -181,6 +196,8 @@ mat-toolbar.navbar {
   object-fit: cover;
   display: block;
 }
+
+ 
 .menu-text {
    
   font-size: 16px;
@@ -197,35 +214,50 @@ mat-toolbar.navbar {
  
 }
 
-.sidebar-menu {
-  margin-top: 56px;
-  /* padding: 12px; */
-   flex: 1;           /* Take up remaining space */
-  overflow-y: auto;  /* Enable scrolling */
-  min-height: 0;     /* Allow the flex item to shrink below content size */ /* Adjust this value as needed */
+.sidebar.collapsed ~ .navbar {
+  width: calc(100% - 70px);
+}
+.sidebar.collapsed .mat-mdc-list-item {
+  justify-content: center;
+}
+
+/* ONLY hide text, not icons */
+.sidebar.collapsed .menu-text,
+.sidebar.collapsed .logo-name {
+  display: none;
+}
+.sidebar-menu a {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
 }
 
 .sidebar-menu mat-icon {
   font-size: 22px;
-  margin: 0 !important;
-  color: #64748b;
-  width: 24px;
-  height: 24px;
+ 
 }
+ 
 
-.sidebar-menu .mat-mdc-list-item:hover {
-  background-color: #7a8450 !important;
-   border-radius: 12px;
-  
+ 
+ 
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column; /* This allows us to use 'margin-top: auto' */
+  height: 100vh;          /* Sidebar takes full screen height */
+  position: fixed;        /* This keeps it from moving when you scroll */
+  left: 0;
+  top: 0;
+  background: white;
+  border-right: 1px solid #eee;
+  z-index: 1001;          /* Stay above everything */
+  transition: width 0.3s ease; /* Ensures the sidebar takes full height */
 }
-
-.sidebar-menu .mat-mdc-list-item:hover .menu-text {
-  color: white !important;
+/* Ensure the top part (Logo + Menu) stays grouped */
+.sidebar-top-section {
+  flex-shrink: 0;
 }
-
-.sidebar-menu .mat-mdc-list-item:hover mat-icon {
-  color: white !important;
-}
+ 
 /* Card */
 .upload-card {
   background: #f8f8f5f6;
@@ -286,5 +318,29 @@ mat-toolbar.navbar {
   font-weight: 500;
 }
 
-/* Collapse behavior */
+/* Mobile adjustments for the header */
+@media (max-width: 768px) {
+  .dt-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px;
+  }
+  
+  .navbar {
+    padding: 0 8px !important;
+  }
+
+  .nav-right {
+    display: none; /* Hide search bar on very small screens or move it to a menu */
+  }
+
+  /* Make task cards stack vertically */
+  .tasks-row, .bottom-row {
+    flex-direction: column !important;
+  }
+  
+  .task-card {
+    width: 100%;
+  }
+}
  

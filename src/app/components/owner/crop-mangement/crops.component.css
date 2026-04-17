@@ -5,11 +5,11 @@
   display: block;
 }
 .crop{
- /* border: 1px solid red;  */
- margin-top: 70px;
- margin-right: -100px;
- /* /* height: 100%; */
- width: 980px;
+ /* border: 1px solid red; */
+ margin-top: 80px;
+ /* margin-right: -100px; */
+ height: 100%;
+ width: 100%;
 }
 
 /* Header */
@@ -20,17 +20,16 @@
    background: #bbbbbb21;
 }
 
-.header-text h1 {
-  font-size: 30px;
-  font-weight: 900;
-  letter-spacing: -0.025em;
-  font-family: 'Roboto', sans-serif;
+.header-text h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .header-text p {
   margin: 2px 0 0;
   font-size: 13px;
-  color: #777;
+  color: #e0e0e0;
 }
 
 .spacer {
@@ -382,61 +381,4 @@ th {
 
 .table-row:hover {
   background: rgba(0,0,0,0.03);
-}
-.week{
-   flex: 1;
-  text-align: center;
-  font-size: 10px;
-  font-weight: 700;
-  color: #94a3b8; /* slate-400 */
-  text-transform: uppercase;
-  letter-spacing: -0.025em;
-}
-.cWeek{
-  border: 1px solid  ;
-  border-top: none;
-  border-bottom: none;
-  background-color: #77777735;
-  height: 15px;
-  width: 15px;
-  text-align: center;
-  flex: 1;
-  font-size: 10px;
-  font-weight: 700;
-  color: #94a3b8; /* slate-400 */
-  text-transform: uppercase;
-  letter-spacing: -0.025em;
-}
-.chip {
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-/* Stage colors */
-.chip.blue {
-  background: #dbeafe;
-  color: #2563eb;
-}
-
-.chip.purple {
-  background: #f3e8ff;
-  color: #7c3aed;
-}
-
-.chip.orange {
-  background: #ffedd5;
-  color: #f97316;
-}
-
-.chip.green {
-  background: #d1fae5;
-  color: #059669;
-}
-
-.chip.red {
-  background: #fee2e2;
-  color: #dc2626;
 }
