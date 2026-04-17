@@ -239,10 +239,15 @@ mat-sidenav-container {
 
 .navbar {
  display: flex !important;
-  width: calc(100% - 240px) !important; /* Take up remaining width only */
+   align-items: center;
+
+  width: 100%;
+  left: 0; /* Take up remaining width only */
   height: 70px !important;
   position: fixed !important;
   top: 0;
+   gap: 10px;
+  padding: 0 15px;
   right: 0; /* Align to the right side */
   z-index: 1000 !important; /* Lower than sidebar */
   
@@ -257,8 +262,8 @@ mat-sidenav-container {
   width: 50%;
   max-width:600px;
   flex: 1 1 600px;
-  min-width: 300px;
-  margin-left: 40px;
+  min-width: 0px;
+  margin: 0 20px;
   
 }
 
@@ -270,8 +275,8 @@ mat-sidenav-container {
   display: flex;
   align-items: center;
   padding-top: 10px;
-  margin-top: 20px;
-  margin-left: 250px;
+  margin-top: 0px;
+  margin-left: 300px;
 }
  
 .search-bar input {
@@ -291,10 +296,62 @@ mat-sidenav-container {
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
   margin-left: auto;
   height: 100%;
  
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto !important;
+    padding: 10px;
+  }
+
+  .search-bar {
+    order: 3;
+    width: 50%;
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  mat-form-field.search-bar {
+  /* Allow it to grow and shrink */
+  flex: 1 1 auto; 
+  
+  /* Reset the fixed width */
+  width: auto !important; 
+  
+  /* Set boundaries */
+  max-width: 600px;
+  min-width: 150px; /* Adjust based on your icon/text size */
+  
+  /* Add responsive margins if needed */
+  margin: 0 16px;
+}
+
+/* For mobile devices, you might want it to take full width */
+@media (max-width: 600px) {
+  mat-form-field.search-bar {
+    max-width: 100%;
+    margin: 0 8px;
+  }
+}
+
+  .navbar-right {
+    order: 2;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .logo,
+  .sidebar-toggle {
+    order: 1;
+  }
+}
+@media (max-width: 480px) {
+  .search-bar {
+    display: none;
+  }
 }
 
 /* notification */

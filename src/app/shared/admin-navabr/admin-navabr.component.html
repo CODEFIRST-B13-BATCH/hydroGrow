@@ -1,46 +1,24 @@
 
-   <mat-toolbar class="navbar">
-    <div class="sidebar-header">
-      <button mat-icon-button (click)="toggleSidebar()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      @if (!isCollapsed) {
-        <div class="logo">
+ <mat-sidenav mode="side" [opened]="true" class="sidebar" [style.width.px]="isCollapsed ? 10 : 240">
+ 
+      
+    
+        <div class="sidebar-header">
+          <button mat-icon-button (click)="toggleSidebar()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          @if (!isCollapsed) {
+            <div class="logo">
         <span class="material-symbols-outlined logo-icon">eco</span>
-   <div class="logo-text">
-          <h3>HydroFarm</h3>
+              <div class="logo-text">
+               <h3>HydroFarm</h3>
           <p>Super Admin Panel</p>
+              </div>
+            </div>
+          }
         </div>
-</div>
-      }
-     </div>
-</mat-toolbar> 
 
-<!-- SIDEBAR -->
-<mat-sidenav
-  mode="side"
-  [opened]="true"
-  class="sidebar"
-  [style.width.px]="isCollapsed ? 10 : 240"
->
-  <!-- Logo -->
-<!-- <div class="sidebar-header">
-    <button mat-icon-button (click)="toggleSidebar()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    @if (!isCollapsed) {
-      <div class="logo">
-        <span class="material-symbols-outlined logo-icon">eco</span>
-
-       <div class="logo-text">
-          <h3>HydroFarm</h3>
-          <p>Super Admin Panel</p>
-        </div>
-      </div>
-    }
-  </div>  -->
-  <!-- Menu -->
-  <mat-nav-list class="sidebar-menu">
+      <mat-nav-list class="sidebar-menu">
     <a mat-list-item routerLink="/users" routerLinkActive="active-link">
       <mat-icon>group</mat-icon>
       @if (!isCollapsed) {
@@ -69,9 +47,9 @@
       }
     </a>
   </mat-nav-list>
+      
 
-  <!-- Footer -->
-  <div class="sidebar-footer">
+   <div class="sidebar-footer">
     @if (!isCollapsed) {
       <div class="user-info">
         <img
@@ -90,6 +68,5 @@
       </button>
     }
   </div>
-</mat-sidenav>
-
- 
+    
+  </mat-sidenav>
