@@ -1,0 +1,142 @@
+ 
+  <mat-toolbar class="navbar">
+    <div class="sidebar-header">
+      <button mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      @if (!isCollapsed) {
+        <div class="logo">
+          <span class="material-symbols-outlined logo-icon">potted_plant</span>
+          <span class="logo-text">HydroFarm Portal</span>
+        </div>
+      }
+    </div>
+
+    <!-- Right side -->
+    <div class="nav-right">
+      <!-- Search -->
+      <mat-form-field appearance="fill" class="search-bar">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="Search tasks or logs..." />
+      </mat-form-field>
+      <!-- Notification -->
+      <!-- <button mat-icon-button>
+      <mat-icon>notifications</mat-icon>
+    </button> -->
+
+      <!-- Profile -->
+    </div>
+
+    <div class="nav-actions">
+      <!-- Notification -->
+      <button mat-icon-button class="custom-icon-btn">
+        <mat-icon>notifications</mat-icon>
+      </button>
+
+      <!-- Profile -->
+      <div class="user-text">
+        <div class="user-name">{{ userName }}</div>
+        <div class="user-role">{{ userRole }}</div>
+      </div>
+      <div class="avatar">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj_JXFrrF3LXvE-h0VBo0znxUZTBwv5cYjetKm9wPonk3QMmFzvu5SYCq9MmKl36UOOfZDxupdnNfIYxVG1jUdNqbBoeqgTOKsDoPmG1LslUM5Fqcd-YeWoGM5EuriIiQ3qQizZ9uuMtakJvHxRrF56ACKilVWoPPsJdvzQ0QMa-MNaYJh4XGei0dW07HB454IOHw7-egPlcgoWTDZKwsuv6zDDQx8QhNc7zyJjBacXLaxydAllVO-6CwQ9pVAFyQZ02cM2Spt-WUX"
+        />
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <!-- Sidebar -->
+
+ 
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      [opened]="true"
+      class="sidenav"
+      [style.width.px]="isCollapsed ? 10 : 240"
+    >
+      <!-- <div class="sidebar-header">
+      <button mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div> -->
+
+      <!-- Menu -->
+      <mat-list class="sidebar-menu">
+        <a mat-list-item routerLink="/worker/daily-task">
+          <mat-icon>dashboard</mat-icon>
+          @if (!isCollapsed) {
+            <span class="menu-text">Dashboard</span>
+          }
+        </a>
+
+        <a mat-list-item routerLink="/worker/daily-task">
+          <mat-icon>task_alt</mat-icon>
+          @if (!isCollapsed) {
+            <span class="menu-text">Daily Task</span>
+          }
+        </a>
+
+        <a mat-list-item routerLink="/myfarm">
+          <mat-icon>agriculture</mat-icon>
+          @if (!isCollapsed) {
+            <span class="menu-text">My Farms</span>
+          }
+        </a>
+
+        <a mat-list-item routerLink="/worker/activitylog">
+          <mat-icon>history_edu</mat-icon>
+          @if (!isCollapsed) {
+            <span class="menu-text">Activity Logs</span>
+          }
+        </a>
+
+        <a
+          mat-list-item
+          (click)="onLogout()"
+          class="logout-item"
+          style="cursor: pointer"
+        >
+          <mat-icon>logout</mat-icon>
+          @if (!isCollapsed) {
+            <span class="menu-text">Log Out</span>
+          }
+        </a>
+       
+      <!-- upload section -->
+
+      <mat-card class="upload-card">
+        <!-- Title -->
+        <div class="upload-header">
+          <mat-icon class="cloud-icon">cloud_upload</mat-icon>
+          @if (!isCollapsed) {
+            <span class="title">Quick Upload</span>
+          }
+        </div>
+
+        <!-- Subtitle -->
+        <p class="subtitle">Upload crop health photos for instant analysis.</p>
+
+        <!-- Upload Box -->
+        <div class="upload-box" (click)="fileInput.click()">
+          <mat-icon class="upload-icon">photo_camera</mat-icon>
+
+          @if (!isCollapsed) {
+            <span class="upload-text">DROP PHOTO</span>
+          }
+
+          <input
+            type="file"
+            #fileInput
+            hidden
+            (change)="onFileSelected($event)"
+          />
+        </div>
+      </mat-card>
+</mat-list>
+      <!-- Hidden input -->
+    </mat-sidenav>
+
+    <!-- <mat-sidenav-content> </mat-sidenav-content> -->
+  

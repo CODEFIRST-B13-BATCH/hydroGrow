@@ -1,0 +1,193 @@
+<div class="sensor-dashboard-container">
+  <div class="header-section">
+    <h1>Sensor Monitoring</h1>
+    <p>Real-time telemetry for Nutrient Film Technique System 01</p>
+  </div>
+
+  <div class="top-cards-grid">
+    <!-- pH Level -->
+    <mat-card class="top-card">
+      <div class="card-header">
+        <span class="title">pH Level</span>
+        <mat-icon class="icon green-icon">water_drop</mat-icon>
+      </div>
+      <div class="card-value-section">
+        <span class="large-value">6.1</span>
+        <span class="sub-value green">+0.2</span>
+      </div>
+      <div class="card-footer ph-footer">
+        <div class="ph-labels">
+          <span>LOW<br>(5.0)</span>
+          <span>IDEAL (5.5-<br>6.5)</span>
+          <span>HIGH<br>(7.5)</span>
+        </div>
+        <div class="ph-bar-container">
+          <div class="ph-bar"></div>
+          <div class="ph-marker"></div>
+        </div>
+      </div>
+    </mat-card>
+
+    <!-- EC Conductivity -->
+    <mat-card class="top-card">
+      <div class="card-header">
+        <span class="title">EC Conductivity</span>
+        <mat-icon class="icon olive-icon">bolt</mat-icon>
+      </div>
+      <div class="card-value-section">
+        <span class="large-value">1.8</span>
+        <span class="unit">mS/cm</span>
+      </div>
+      <div class="card-footer ec-footer">
+        <div class="bar-chart">
+          <div class="bar bar-1"></div>
+          <div class="bar bar-2"></div>
+          <div class="bar bar-3"></div>
+          <div class="bar bar-4"></div>
+          <div class="bar bar-5"></div>
+          <div class="bar bar-6"></div>
+          <div class="bar bar-7"></div>
+          <div class="bar bar-8"></div>
+        </div>
+      </div>
+    </mat-card>
+
+    <!-- Water Temp -->
+    <mat-card class="top-card">
+      <div class="card-header">
+        <span class="title">Water Temp</span>
+        <mat-icon class="icon brown-icon">device_thermostat</mat-icon>
+      </div>
+      <div class="card-value-section">
+        <span class="large-value">22.5°C</span>
+        <span class="sub-value red">-0.5</span>
+      </div>
+      <div class="card-footer temp-footer">
+        <mat-icon class="small-check">check_circle</mat-icon>
+        <span>Optimal root environment</span>
+      </div>
+    </mat-card>
+
+    <!-- Air Environment -->
+    <mat-card class="top-card">
+      <div class="card-header">
+        <span class="title">Air Environment</span>
+        <mat-icon class="icon gray-icon">cloud</mat-icon>
+      </div>
+      <div class="air-split">
+        <div class="air-item">
+          <span class="air-label">TEMP</span>
+          <span class="air-val">24.1°C</span>
+        </div>
+        <div class="air-item">
+          <span class="air-label">HUMIDITY</span>
+          <span class="air-val">65%</span>
+        </div>
+      </div>
+      <mat-progress-bar mode="determinate" value="65" class="air-progress"></mat-progress-bar>
+    </mat-card>
+  </div>
+
+  <div class="main-content-grid">
+    <!-- Left column: Trends -->
+    <div class="left-column">
+      <mat-card class="trends-card">
+        <div class="trends-header">
+          <div>
+            <h2>Historical Trends</h2>
+            <p>pH and EC Levels (Last 24 Hours)</p>
+          </div>
+          <div class="toggle-group">
+            <button class="toggle-btn active">24H</button>
+            <button class="toggle-btn">7D</button>
+          </div>
+        </div>
+        <div class="chart-container">
+          <!-- Synthetic SVG chart to match the image precisely -->
+          <svg viewBox="0 0 500 200" class="line-chart-svg" preserveAspectRatio="none">
+            <!-- Dotted Line (EC) -->
+            <path d="M 0,160 Q 50,150 100,160 T 200,160 Q 250,140 300,100 T 400,140 T 500,200" 
+                  fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="4,4"/>
+            <!-- Solid Line (pH) -->
+            <path d="M 0,140 Q 50,120 100,150 T 200,120 Q 250,60 300,160 T 400,80 T 500,140" 
+                  fill="none" stroke="#8b904c" stroke-width="2" />
+          </svg>
+          <div class="x-axis">
+            <span>12:00 PM</span>
+            <span>04:00 PM</span>
+            <span>08:00 PM</span>
+            <span>12:00 AM</span>
+            <span>04:00 AM</span>
+            <span>08:00 AM</span>
+          </div>
+        </div>
+        <div class="legend">
+          <div class="legend-item">
+            <span class="dot solid-dot"></span>
+            <span>pH Level (Current: 6.1)</span>
+          </div>
+          <div class="legend-item">
+            <span class="dot outline-dot"></span>
+            <span>EC Conductivity (Current: 1.8)</span>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+    <!-- Right column: Reservoir & Automation -->
+    <div class="right-column">
+      <!-- Reservoir Card -->
+      <mat-card class="reservoir-card">
+        <div class="res-header">
+          <span class="res-title">RESERVOIR LEVEL</span>
+          <mat-icon class="res-icon">water_drop</mat-icon>
+        </div>
+        <div class="res-value">
+          <span class="big-percent">82</span>
+          <span class="percent-sign">%</span>
+        </div>
+        <mat-progress-bar mode="determinate" value="82" class="res-progress"></mat-progress-bar>
+        <p class="res-footer-text">
+          Last refill: 3 days ago. Estimated depletion: 12 days.
+        </p>
+      </mat-card>
+
+      <!-- Automation Card -->
+      <mat-card class="automation-card">
+        <div class="auto-header">
+          <h2>Automation</h2>
+          <a href="#" class="edit-link">Edit Rules</a>
+        </div>
+        
+        <div class="auto-list">
+          <!-- Item 1 -->
+          <div class="auto-item">
+            <div class="auto-info">
+              <span class="auto-title">Temp Regulation</span>
+              <span class="auto-desc">If Water Temp > 25°C &rarr; Coolant ON</span>
+            </div>
+            <mat-slide-toggle [checked]="true" color="primary"></mat-slide-toggle>
+          </div>
+          
+          <!-- Item 2 -->
+          <div class="auto-item">
+            <div class="auto-info">
+              <span class="auto-title">Circulation</span>
+              <span class="auto-desc">Cycles: 15m ON / 45m OFF</span>
+            </div>
+            <mat-slide-toggle [checked]="true" color="primary"></mat-slide-toggle>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="auto-item">
+            <div class="auto-info">
+              <span class="auto-title">pH Balancing</span>
+              <span class="auto-desc">If pH > 6.8 &rarr; Inject Acid (2ml)</span>
+            </div>
+            <mat-slide-toggle [checked]="false" color="primary"></mat-slide-toggle>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

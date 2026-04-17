@@ -1,0 +1,188 @@
+<div class="container">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <span>Dashboard</span> > <span>Daily Tasks</span> > <span>Log Activity</span>
+    </div>
+
+    <!-- TITLE -->
+    <h1>Log Maintenance Task</h1>
+    <p class="subtitle">
+        Record nutrient levels, system adjustments, and farm observations.
+    </p>
+
+    <!-- FORM -->
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="form">
+
+        <!-- ROW 1 -->
+        <div class="grid grid-3">
+            <div class="form-group">
+                <label>Task Type</label>
+                <select formControlName="taskType">
+                    <option value="">Select Task Type</option>
+                    <option value="nutrient">Nutrient Mix</option>
+                    <option value="ph">pH Adjustment</option>
+                    <option value="water">Water Change</option>
+                    <option value="cleaning">Cleaning</option>
+                </select>
+
+                <small class="error" *ngIf="form['taskType'].touched && form['taskType'].invalid">
+                    Required
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>Farm / Greenhouse</label>
+                <select formControlName="location">
+                    <option value="">Select Location</option>
+                    <option value="gh_a">Greenhouse A - North Wing</option>
+                    <option value="gh_b">Greenhouse B - Vertical Farm</option>
+                    <option value="outdoor_1">Outdoor Plot 1</option>
+                    <option value="outdoor_2">Outdoor Plot 2</option>
+                </select>
+                <small class="error" *ngIf="form['location'].touched && form['location'].invalid">
+                    Required
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>Hydroponic System</label>
+                <select formControlName="system">
+                    <option value="">Select System</option>
+                    <option value="nft">NFT System</option>
+                    <option value="dwc">Deep Water Culture</option>
+                    <option value="drip">Drip System</option>
+                    <option value="aeroponics">Aeroponics</option>
+                    <option value="ebb_flow">Ebb & Flow</option>
+                </select>
+                <small class="error" *ngIf="form['system'].touched && form['system'].invalid">
+                    Required
+                </small>
+            </div>
+        </div>
+
+        <!-- <hr /> -->
+
+        <!-- ROW 2 -->
+        <div class="grid grid-4">
+            <div class="form-group">
+                <label>Nutrient Solution (L)</label>
+                <input type="number" formControlName="nutrient">
+
+                <small class="error" *ngIf="form['nutrient'].touched && form['nutrient'].errors">
+                    <span *ngIf="form['nutrient'].errors['required']">Required</span>
+                    <span *ngIf="form['nutrient'].errors['min']">Must be positive</span>
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>pH Start</label>
+                <input type="text" placeholder="Start" formControlName="phStart">
+                <small class="error" *ngIf="form['phStart'].touched && form['phStart'].errors?.['required']">
+                    Required
+                </small>
+                <small class="error" *ngIf="form['phStart'].touched && form['phStart'].errors?.['min']">
+                    Minimum pH 0
+                </small>
+                <small class="error" *ngIf="form['phStart'].touched && form['phStart'].errors?.['max']">
+                    Maximum pH 14
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>pH End</label>
+                <input type="text" placeholder="End" formControlName="phEnd">
+                <small class="error" *ngIf="form['phEnd'].touched && form['phEnd'].errors?.['required']">
+                    Required
+                </small>
+                <small class="error" *ngIf="form['phEnd'].touched && form['phEnd'].errors?.['min']">
+                    Maximum pH 0
+                </small>
+                <small class="error" *ngIf="form['phEnd'].touched && form['phEnd'].errors?.['max']">
+                    Maximum pH 14
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>EC Level(mS/cm)</label>
+                <input type="text" placeholder="e.g. 1.8" formControlName="ecLevel">
+                <small class="error" *ngIf="form['ecLevel'].touched && form['ecLevel'].errors?.['required']">
+                    Required
+                </small>
+            </div>
+        </div>
+
+        <!-- ROW 3 -->
+        <div class="grid grid-2">
+            <div class="form-group">
+                <label>Water Temperature</label>
+                <div>
+                    <input type="text" placeholder="" formControlName="temperature">
+                    <span class="temperature">&#8451;</span>
+                </div>
+                <small class="error" *ngIf="form['temperature'].touched && form['temperature'].errors?.['required']">
+                    Required
+                </small>
+                <small class="error" *ngIf="form['temperature'].touched && form['temperature'].errors?.['min']">
+                    Minimum Temperature 0
+                </small>
+                <small class="error" *ngIf="form['temperature'].touched && form['temperature'].errors?.['max']">
+                    Maximum Temperature 50
+                </small>
+            </div>
+        </div>
+
+        <!-- NOTES + UPLOAD -->
+        <div class="grid grid-2">
+            <div class="form-group">
+                <label>Maintenance Notes</label>
+
+                <textarea class="textarea" formControlName="notes"></textarea>
+
+            </div>
+
+            <div class="upload-wrapper">
+                <label class="block text-sm font-semibold text-slate-700">
+                    Evidence & Crop Status
+                </label>
+                <label class="upload-box">
+                    <div class="upload-content">
+                        <span class="material-icons upload-icon">photo_camera</span>
+                        <p> Click to upload or drag & drop</p>
+                        <small>PNG, JPG up to 100MB</small>
+                    </div>
+                    <input type="file" hidden accept="image/png, image/jpeg" (change)="onFileSelected($event)">
+                </label>
+                <div class="preview-container">
+
+                    <!-- Image List -->
+                    <div class="image-box" *ngFor="let img of images; let i = index">
+                        <img [src]="img">
+
+                        <button class="remove-btn" (click)="removeImage(i)">✕</button>
+                    </div>
+
+                    <!-- Add More -->
+                    <label class="add-box">
+                        <span>+</span>
+                        <input type="file" hidden accept="image/png, image/jpeg" (change)="onFileSelected($event)">
+                    </label>
+
+                </div>
+            </div>
+        </div>
+        <!-- BUTTONS -->
+        <div class="actions">
+            <button type="button" class="btn cancel" (click)="onCancel()">Cancel</button>
+            <button type="submit" class="btn save">Save Log</button>
+        </div>
+
+    </form>
+
+    <!-- INFO BOX -->
+    <div class="info-box">
+        <strong>Daily Checklist</strong>
+        <p>You have completed 3 of 5 scheduled maintenance tasks for today.</p>
+    </div>
+
+</div>

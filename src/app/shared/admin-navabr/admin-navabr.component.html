@@ -1,0 +1,72 @@
+
+ <mat-sidenav mode="side" [opened]="true" class="sidebar" [style.width.px]="isCollapsed ? 10 : 240">
+ 
+      
+    
+        <div class="sidebar-header">
+          <button mat-icon-button (click)="toggleSidebar()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          @if (!isCollapsed) {
+            <div class="logo">
+        <span class="material-symbols-outlined logo-icon">eco</span>
+              <div class="logo-text">
+               <h3>HydroFarm</h3>
+          <p>Super Admin Panel</p>
+              </div>
+            </div>
+          }
+        </div>
+
+      <mat-nav-list class="sidebar-menu">
+    <a mat-list-item routerLink="/users" routerLinkActive="active-link">
+      <mat-icon>group</mat-icon>
+      @if (!isCollapsed) {
+        <span class="menu-text">Users</span>
+      }
+    </a>
+
+    <a mat-list-item routerLink="/farms" routerLinkActive="active-link">
+      <mat-icon>yard</mat-icon>
+      @if (!isCollapsed) {
+        <span class="menu-text">Farms</span>
+      }
+    </a>
+
+    <a mat-list-item routerLink="/system-health" routerLinkActive="active-link">
+      <mat-icon>settings_input_antenna</mat-icon>
+      @if (!isCollapsed) {
+        <span class="menu-text">System Health</span>
+      }
+    </a>
+
+    <a mat-list-item routerLink="/analytics" routerLinkActive="active-link">
+      <mat-icon>analytics</mat-icon>
+      @if (!isCollapsed) {
+        <span class="menu-text">Analytics</span>
+      }
+    </a>
+  </mat-nav-list>
+      
+
+   <div class="sidebar-footer">
+    @if (!isCollapsed) {
+      <div class="user-info">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiiPIE_Bs1Cc0Ld4ScPQLxrRow4-BXAholrKoPOjL_XHuOZELe-2c6r_D4hRwOb5vKCb9wneQKWwUBMX8LtndE-nUiRdQTU9zlHBQaRXsOZ8Xt15iFTTMOXJsGUj0ipRZejIo63TShyb4A1LM9u8Rvslx8sQq056HdbyHglVvZA-aSZdYU0SyMSB7n_pT1shlH9dvGKbEDeuFozJ8YbvOAsTIdep_lcjV9vGu0bz0LnELhYafEtMXaHyiUA3Je4HT4Dup6NkCXXIue"
+          class="avatar"
+        />
+
+        <div class="user-text">
+          <div class="user-name">{{ userName }}</div>
+          <div class="user-role">{{ userRole }}</div>
+        </div>
+      </div>
+
+      <button mat-icon-button class="logout-btn" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    }
+  </div>
+    
+  </mat-sidenav>

@@ -1,0 +1,433 @@
+.layout-container {
+flex-grow: 1;
+  height: 100vh;
+   overflow: visible;
+ 
+}
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column; /* This allows us to use 'margin-top: auto' */
+  height: 100vh;          /* Sidebar takes full screen height */
+  position: fixed;        /* This keeps it from moving when you scroll */
+  left: 0;
+  top: 0;
+  background: white;
+  border-right: 1px solid #eee;
+  z-index: 1001;          /* Stay above everything */
+  transition: width 0.3s ease; /* Ensures the sidebar takes full height */
+}
+/* Ensure the top part (Logo + Menu) stays grouped */
+.sidebar-top-section {
+  flex-shrink: 0;
+}
+.sidebar {
+  width: 240px;
+ transition: width 0.3s ease;
+ overflow: hidden;
+  border-right: 1px solid #eee;
+  background: white;
+}
+mat-sidenav-container {
+  height: 100vh;
+}
+ 
+
+/* related resource: navbar.component.css:2:1 */
+.layout-container[_ngcontent-ng-c3926637511] { /* the element was mat-sidenav-container.mat-drawer-container.mat-sidenav-container.layout-container.mat-drawer-transition */
+  width: 100%;
+  height: 100vh;
+}
+  
+ mat-toolbar.mat-toolbar.navbar {
+  width: 100% !important; /* Ensure it takes full width */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   position: fixed;
+  top: 0;
+  left: 0;
+    /* Take full width of the screen */
+  z-index: 1000; /* Ensure it stays above content */
+  overflow: hidden; /* Prevent vertical overflow from children */
+}
+.content {
+  padding: 24px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+}
+
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0px;
+}
+
+.logo-icon {
+  font-size: 28px;
+  background: #e6e6d4;
+  padding: 8px;
+  border-radius: 8px;
+  color: #7a7b2f;
+  margin-left: 0px;
+}
+
+.sidebar.collapsed ~ .navbar {
+  width: calc(100% - 70px);
+}
+.sidebar.collapsed .mat-mdc-list-item {
+  justify-content: center;
+}
+
+/* ONLY hide text, not icons */
+.sidebar.collapsed .menu-text,
+.sidebar.collapsed .logo-name {
+  display: none;
+}
+
+ 
+.sidebar-menu a {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+ 
+  letter-spacing: 1px;
+  /* space between icon and text */
+  padding: 12px 16px;
+}
+ 
+
+.sidebar.collapsed .mat-mdc-list-item {
+  justify-content: center;
+}
+ 
+.sidebar-menu mat-icon {
+  font-size: 22px;
+}
+
+.sidebar-menu .mat-mdc-list-item:hover {
+  background-color: #7a8450 !important;
+}
+
+.sidebar-menu .mat-mdc-list-item:hover .menu-text {
+  color: white !important;
+}
+
+.sidebar-menu .mat-mdc-list-item:hover mat-icon {
+  color: white !important;
+}
+
+ 
+.menu-text {
+  margin-left: 22px;
+  position: relative;
+  top: -9px;
+  font-size: 18px;
+}
+
+.menu-parent {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  /* space between icon and text */
+  padding: 12px 16px;
+  color: black;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.submenu {
+  font-size: 16px;
+ }
+
+.crop {
+  font-size: 18px;
+   margin-left: 9px;
+ 
+  }
+.logo-text h3 {
+  margin: 0;
+  color: #1f2937;
+  font-weight: 700;
+  transition: 0.3s;
+  font-size: 22px;
+}
+
+.logo-text p {
+  margin: 0;
+  /* important */
+  font-size: 14px;
+  color: #6b7280;
+  letter-spacing: 1px;
+}
+
+ 
+.sidebar-select {
+  width: 100%;
+  padding: 0 8px;
+}
+
+/* wrapper like menu */
+.custom-select {
+  width: 100%;
+}
+
+/* remove full form-field look */
+::ng-deep mat-select {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* hover like sidebar item */
+::ng-deep mat-select:hover {
+  background-color: #f5f5f5;
+}
+
+/* selected text */
+::ng-deep .mat-mdc-select-value {
+  font-weight: 500;
+}
+
+/* arrow styling */
+::ng-deep .mat-mdc-select-arrow {
+  margin-left: auto;
+}
+
+/* dropdown panel */
+::ng-deep .custom-dropdown {
+  border-radius: 10px !important;
+  padding: 6px 0;
+}
+
+/* dropdown options */
+::ng-deep .mat-mdc-option {
+  font-size: 14px;
+  padding: 10px 16px;
+}
+
+/* active/hover option */
+::ng-deep .mat-mdc-option:hover {
+  background-color: #eeeeee;
+}
+
+ .title {
+  font-size: 16px;
+}
+.spacer {
+  flex: 1;
+}
+
+.navbar {
+ display: flex !important;
+   align-items: center;
+
+  width: 100%;
+  left: 0; /* Take up remaining width only */
+  height: 70px !important;
+  position: fixed !important;
+  top: 0;
+   gap: 10px;
+  padding: 0 15px;
+  right: 0; /* Align to the right side */
+  z-index: 1000 !important; /* Lower than sidebar */
+  
+  /* HydroGrow Glass Effect */
+  background: rgba(255, 255, 255, 0.7) !important; 
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: none; /* Keep it flat and clean like the screenshot */
+}
+ 
+.search-bar {
+  width: 50%;
+  max-width:600px;
+  flex: 1 1 600px;
+  min-width: 0px;
+  margin: 0 20px;
+  
+}
+
+/* 4. Search Bar Polishing */
+::ng-deep .search-bar .mat-mdc-text-field-wrapper {
+  background: #f3f4f6 !important;
+  border-radius: 10px !important;
+  height: 45px !important;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  margin-top: 0px;
+  margin-left: 300px;
+}
+ 
+.search-bar input {
+  font-size: 14px;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.search-icon {
+  color: grey;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  height: 100%;
+ 
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto !important;
+    padding: 10px;
+  }
+
+  .search-bar {
+    order: 3;
+    width: 50%;
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  mat-form-field.search-bar {
+  /* Allow it to grow and shrink */
+  flex: 1 1 auto; 
+  
+  /* Reset the fixed width */
+  width: auto !important; 
+  
+  /* Set boundaries */
+  max-width: 600px;
+  min-width: 150px; /* Adjust based on your icon/text size */
+  
+  /* Add responsive margins if needed */
+  margin: 0 16px;
+}
+
+/* For mobile devices, you might want it to take full width */
+@media (max-width: 600px) {
+  mat-form-field.search-bar {
+    max-width: 100%;
+    margin: 0 8px;
+  }
+}
+
+  .navbar-right {
+    order: 2;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .logo,
+  .sidebar-toggle {
+    order: 1;
+  }
+}
+@media (max-width: 480px) {
+  .search-bar {
+    display: none;
+  }
+}
+
+/* notification */
+.notification-btn {
+  position: relative;
+  color: #374151;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+}
+
+/* divider */
+.nav-divider {
+  width: 1px;
+  height: 40px;
+  background: #ddd;
+  margin: 0 20px;
+}
+
+/* user section */
+.user-profile {
+   
+  margin-top: auto;       /*  This is the magic: pushes it to the absolute bottom */
+  padding:  0 20px;
+  background: white  ;  /* Light background to distinguish it */
+  
+  display: flex;
+  align-items: center;
+  gap: 12px;
+ 
+}
+
+.user-text {
+  text-align: right;
+}
+
+.user-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.user-role {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* avatar */
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #8a8b2c;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.role {
+  font-size: 14px;
+  color: #6b7280;
+}

@@ -1,0 +1,110 @@
+<div class="daily-tasks-container">
+    <!-- Header Section -->
+    <header class="dt-header">
+        <div class="dt-title-container">
+            <h1 class="dt-title">Daily Tasks</h1>
+            <p class="dt-subtitle">{{ currentDate }}</p>
+        </div>
+
+        <div class="dt-filters">
+            <mat-button-toggle-group name="taskFilter" aria-label="Task Filters" value="todo"
+                class="custom-toggle-group">
+                <mat-button-toggle value="todo">To Do</mat-button-toggle>
+                <mat-button-toggle value="inprogress">In Progress</mat-button-toggle>
+                <mat-button-toggle value="completed">Completed</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </header>
+
+    <!-- Tasks Section -->
+    <section class="tasks-row">
+        <mat-card class="task-card" *ngFor="let task of tasks">
+            <div class="task-card-header">
+                <span class="priority-badge" [ngClass]="task.priorityClass">{{ task.priorityText }}</span>
+                <span class="due-time">{{ task.dueTime }}</span>
+            </div>
+
+            <div class="task-card-content">
+                <h3 class="task-title">{{ task.title }}</h3>
+                <p class="task-desc">{{ task.description }}</p>
+
+                <div class="task-image-box" [style.background-image]="'url(' + task.imageUrl + ')'">
+                </div>
+            </div>
+
+            <div class="task-card-actions">
+                <button mat-flat-button color="primary" class="log-activity-btn">
+                    <mat-icon fontSet="material-symbols-outlined">edit_square</mat-icon>
+                    Log Activity
+                </button>
+            </div>
+        </mat-card>
+    </section>
+
+    <!-- Bottom Section Row -->
+    <div class="bottom-row">
+        <!-- Left: Assigned Farms -->
+        <div class="assigned-farms-section">
+            <div class="section-header">
+                <mat-icon class="section-icon" fontSet="material-symbols-outlined">location_on</mat-icon>
+                <h2>My Assigned Farms</h2>
+            </div>
+
+            <div class="farm-list">
+                <mat-card class="farm-card" *ngFor="let farm of farms">
+                    <div class="farm-img" [style.background-image]="'url(' + farm.imageUrl + ')'"></div>
+
+                    <div class="farm-info">
+                        <h4 class="farm-name">{{ farm.name }}</h4>
+                        <p class="farm-desc">{{ farm.description }}</p>
+                        <div class="farm-status">
+                            <span class="status-dot" [ngClass]="farm.statusClass"></span>
+                            <span class="status-text" [ngClass]="farm.statusClass">{{ farm.statusText }}</span>
+                            <span class="status-detail">{{ farm.statusDetail }}</span>
+                        </div>
+                    </div>
+
+                    <button mat-icon-button class="farm-nav-btn">
+                        <mat-icon fontSet="material-symbols-outlined">chevron_right</mat-icon>
+                    </button>
+                </mat-card>
+            </div>
+        </div>
+
+        <!-- Right: Maintenance Log -->
+        <div class="maintenance-log-section">
+            <div class="section-header log-header">
+                <div class="log-title-wrap">
+                    <mat-icon class="section-icon" fontSet="material-symbols-outlined">history</mat-icon>
+                    <h2>Maintenance Log</h2>
+                </div>
+                <button mat-button class="view-all-btn">View All</button>
+            </div>
+
+            <mat-card class="log-card">
+                <table mat-table [dataSource]="maintenanceLogs" class="log-table">
+                    <!-- Task Column -->
+                    <ng-container matColumnDef="task">
+                        <th mat-header-cell *matHeaderCellDef> TASK </th>
+                        <td mat-cell *matCellDef="let log" class="log-task-name"> {{ log.task }} </td>
+                    </ng-container>
+
+                    <!-- Completed Column -->
+                    <ng-container matColumnDef="completed">
+                        <th mat-header-cell *matHeaderCellDef> COMPLETED </th>
+                        <td mat-cell *matCellDef="let log" class="log-completed"> {{ log.completed }} </td>
+                    </ng-container>
+
+                    <!-- Notes Column -->
+                    <ng-container matColumnDef="notes">
+                        <th mat-header-cell *matHeaderCellDef> NOTES </th>
+                        <td mat-cell *matCellDef="let log" class="log-notes"> <i>{{ log.notes }}</i> </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </mat-card>
+        </div>
+    </div>
+</div>

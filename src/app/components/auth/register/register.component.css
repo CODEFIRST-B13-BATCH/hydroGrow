@@ -1,0 +1,100 @@
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: sans-serif;
+    background-color:aliceblue;
+}
+
+.main {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 700px;
+    width: 400px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.material-symbols-outlined {
+    display: grid;
+    place-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 60px;
+}
+
+.example-form {
+  min-width: 100px;
+  max-width: 500px;
+  width: 90%;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.example-full-width {
+  width: 90%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-container mat-form-field + mat-form-field {
+  margin-left: 20px;
+}
+
+.example-right-align {
+  text-align: center;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  appearance: textfield;
+}
+
+.width {
+    width:90%;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.example-button-row button{
+  background-color: #1976d2; 
+  color: white;               
+  border-radius: 20px;    
+  padding: 10px 20px;
+  width: 80%;
+  font-size: 20px;
+  margin-top: 20px;
+  align-self: center;
+  margin-left: 45px;
+}
+
+.selector {
+  width: 90%;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.example-login-button {
+  margin-top: 15px;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  
+}
